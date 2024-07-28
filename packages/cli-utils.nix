@@ -11,5 +11,6 @@
     gparted
     pciutils
     tree
+    steamPackages.steamcmd
   ];
 }
