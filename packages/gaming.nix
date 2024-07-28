@@ -9,10 +9,12 @@
     discord
     lutris
     prismlauncher
+    protontricks
     spotify
     steam
     vesktop
     wine
+    winetricks
   ];
 
   # Steam
