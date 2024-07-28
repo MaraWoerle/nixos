@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config = mkIf services.jellyfin.enable {
+  config = mkIf config.services.jellyfin.enable {
     environment.systemPackages = with pkgs; [
       jellyfin
       jellyfin-web
