@@ -12,6 +12,7 @@
       ./openssh.nix
       ./plasma.nix
       ./satisfactory.nix
+      ./searxng.nix
       ./sound.nix
     ];
 }

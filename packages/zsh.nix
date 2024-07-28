@@ -2,7 +2,6 @@
 
 {
   users.defaultUserShell = pkgs.zsh;
-  users.users.mara.shell = pkgs.zsh;
 
   programs.zsh = {
     enable = true;
