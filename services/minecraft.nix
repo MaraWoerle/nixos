@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.services.mc-server;
@@ -49,5 +49,8 @@ with lib;
       allowedTCPPorts = [ cfg.port ];
       allowedUDPPorts = [ cfg.port ];
     };
+    environment.systemPackages = with pkgs; [
+      jdk21
+    ];
   };
 }
