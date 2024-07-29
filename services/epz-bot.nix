@@ -18,6 +18,8 @@ with lib;
           Directory of the bot.
         '';
       };
+
+      enable-db = mkEnableOption "Enable the Database";
     };
 
     services.epz-test-bot = {
@@ -30,6 +32,8 @@ with lib;
           Directory of the bot.
         '';
       };
+
+      enable-db = mkEnableOption "Enable the Database";
     };
   };
 
@@ -37,20 +41,17 @@ with lib;
     (mkIf (bot-cfg.enable || test-cfg.enable) {
       # NodeJS
       environment.systemPackages = [ pkgs.nodejs ];
-
+    })
+    (mkIf (bot-cfg.enable-db || test-cfg.enable-db) {
       # Database
       services.mysql = {
-          enable = true;
-          package = pkgs.mysql;
-          ensureUsers = [
-            {
-              name = "epz_bot";
-              ensurePermissions = {
-                "epz_dbs.*" = mkIf bot-cfg.enable "ALL PRIVILEGES";
-                "epz_dbs_test.*" = mkIf test-cfg.enable "ALL PRIVILEGES";
-              };
-            }
-          ];
+        enable = true;
+        package = pkgs.mysql;
+        ensureUsers = [
+          {
+            name = "epz_bot";
+          }
+        ];
       };
     })
     (mkIf bot-cfg.enable {
@@ -70,14 +71,24 @@ with lib;
             User = "root";
         };
       };
-
+    })
+    (mkIf bot-cfg.enable-db {
+      # Database
       services.mysql = {
         initialDatabases = [ { name = "epz_dbs"; } ];
         ensureDatabases = [ "epz_dbs" ];
+        ensureUsers = [
+          {
+            name = "epz_bot";
+            ensurePermissions = {
+              "epz_dbs.*" = "ALL PRIVILEGES";
+            };
+          }
+        ];
       };
     })
     (mkIf test-cfg.enable {
-      # Test Bot
+      # Test-Bot
       systemd.services.epz-test-bot = {
         description = "EPZ-Discord-Test-Bot";
         wantedBy = ["multi-user.target"];
@@ -93,10 +104,20 @@ with lib;
             User = "root";
         };
       };
-
+    })
+    (mkIf (bot-cfg.enable-db || test-cfg.enable-db) {
+      # Test-Database
       services.mysql = {
         initialDatabases = [ { name = "epz_dbs_test"; } ];
         ensureDatabases = [ "epz_dbs_test" ];
+        ensureUsers = [
+          {
+            name = "epz_bot";
+            ensurePermissions = {
+              "epz_dbs_test.*" = "ALL PRIVILEGES";
+            };
+          }
+        ];
       };
     })
   ];

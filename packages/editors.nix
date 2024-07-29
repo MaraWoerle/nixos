@@ -1,6 +1,10 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
+  imports = [
+    ./nano.nix
+  ];
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

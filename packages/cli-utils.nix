@@ -1,6 +1,11 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ pkgs, ... }:
 
 {
+  imports = [
+    ./editors.nix
+    ./zsh.nix
+  ];
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

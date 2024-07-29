@@ -1,6 +1,10 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ pkgs, ... }:
 
 {
+  imports = [
+    ./cli-utils.nix
+  ];
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -32,7 +36,6 @@
 
   # VirtualBox
   virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "mara" ];
 
   # QMK & VIA
   hardware.keyboard.qmk.enable = true;

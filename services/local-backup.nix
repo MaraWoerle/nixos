@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, ... }:
 
 let
   cfg = config.local-backup;

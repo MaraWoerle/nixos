@@ -1,50 +1,52 @@
-{config, pkgs, lib, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.services.satisfactory;
 in
 
+with lib;
+
 {
   options.services.satisfactory = {
-    enable = lib.mkEnableOption "Enable Satisfactory Dedicated Server";
+    enable = mkEnableOption "Enable Satisfactory Dedicated Server";
 
-    beta = lib.mkOption {
-      type = lib.types.enum [ "public" "experimental" ];
+    beta = mkOption {
+      type = types.enum [ "public" "experimental" ];
       default = "public";
       description = "Beta channel to follow";
     };
 
-    address = lib.mkOption {
-      type = lib.types.str;
+    address = mkOption {
+      type = types.str;
       default = "0.0.0.0";
       description = "Bind address";
     };
 
-    maxPlayers = lib.mkOption {
-      type = lib.types.number;
+    maxPlayers = mkOption {
+      type = types.number;
       default = 4;
       description = "Number of players";
     };
 
-    autoPause = lib.mkOption {
-      type = lib.types.bool;
+    autoPause = mkOption {
+      type = types.bool;
       default = true;
       description = "Auto pause when no players are online";
     };
 
-    autoSaveOnDisconnect = lib.mkOption {
-      type = lib.types.bool;
+    autoSaveOnDisconnect = mkOption {
+      type = types.bool;
       default = true;
       description = "Auto save on player disconnect";
     };
 
-    extraSteamCmdArgs = lib.mkOption {
-      type = lib.types.str;
+    extraSteamCmdArgs = mkOption {
+      type = types.str;
       default = "";
       description = "Extra arguments passed to steamcmd command";
     };
   };
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     users.users.satisfactory = {
       home = "/var/lib/satisfactory";
       createHome = true;

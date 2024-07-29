@@ -1,12 +1,12 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   imports =
     [
-      ./backup.nix
       ./epson.nix
       ./epz-bot.nix
       ./jellyfin.nix
+      ./local-backup.nix
       ./minecraft.nix
       ./nvidia.nix
       ./openssh.nix
