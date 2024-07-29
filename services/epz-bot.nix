@@ -105,7 +105,7 @@ with lib;
         };
       };
     })
-    (mkIf (bot-cfg.enable-db || test-cfg.enable-db) {
+    (mkIf test-cfg.enable-db {
       # Test-Database
       services.mysql = {
         initialDatabases = [ { name = "epz_dbs_test"; } ];
