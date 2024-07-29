@@ -26,6 +26,7 @@
     kcalc
     krita
     libreoffice
+    logseq
     putty
     spotify
     thunderbird
