@@ -1,4 +1,4 @@
-{ cpkgs, ... }:
+{ pkgs, ... }:
 
 {
   # Allow unfree packages

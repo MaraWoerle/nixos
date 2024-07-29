@@ -6,5 +6,5 @@
     ./services/all.nix
     ./german-locale.nix
     ./nix.nix
-  ]
+  ];
 }

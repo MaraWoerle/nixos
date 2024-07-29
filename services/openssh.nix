@@ -10,5 +10,5 @@
       settings.KbdInteractiveAuthentication = false;
       #settings.PermitRootLogin = "yes";
     };
-  }
+  };
 }
