@@ -29,25 +29,23 @@
   ];
 
   console.colors = [
-    # Dark
-    "182030" # Black
-    "b93368" # Red
-    "008080" # Green
-    "b93368" # "Yellow"
-    "009abd" # Blue
-    "5c4a94" # Magenta
-    "009abd" # Cyan
-    "c5ccd4" # White
+    "182030" #30-Black
+    "b93368" #31-Red
+    "008080" #32-Green
+    "b93368" #33-Yellow
+    "006bbd" #34-Blue
+    "5c4a94" #35-Purple
+    "009abd" #36-Cyan
+    "8b9096" #37-Grey
 
-    # Bright
-    "5c4a94" # Black
-    "dd3d7d" # Red
-    "009c9c" # Green
-    "967af4" # "Yellow"
-    "00aad4" # Blue
-    "856cd9" # Magenta
-    "00b4dd" # Cyan
-    "d3dae3" # White
+    "212d43" #40-Light-Black
+    "dd3d7d" #41-Light-Red
+    "009c9c" #42-Light-Green
+    "dd3d7d" #43-Light-Yellow
+    "0087e1" #44-Light-Blue
+    "856cd9" #45-Light-Purple
+    "00b4dd" #46-Light-Cyan
+    "c5ccd4" #47-Light-Grey
   ];
 
   # Nerd Fonts
