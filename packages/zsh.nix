@@ -13,6 +13,7 @@
     shellAliases = {
       update = "sudo nixos-rebuild switch";
       cleanup = "sudo nix-collect-garbage -d";
+      cleanbuild = "update && cleanup";
     };
 
     ohMyZsh = {
