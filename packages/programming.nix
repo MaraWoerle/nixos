@@ -1,20 +1,30 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+
+let
+  cfg = config.programs.programming;
+in
+
+with lib;
 
 {
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  options.programs.programming.enable = mkEnableOption "Enable programming Packages";
 
-  environment.systemPackages = with pkgs; [
-    # Programming
-    gnuplot
-    lcov
-    libGL
-    typescript
-    nodePackages.ts-node
-    plantuml
-    jdk21
-  ];
+  config = mkIf cfg.enable {
+    # Allow unfree packages
+    nixpkgs.config.allowUnfree = true;
 
-  # Docker
-  virtualisation.docker.enable = true;
+    environment.systemPackages = with pkgs; [
+      # Programming
+      gnuplot
+      lcov
+      libGL
+      typescript
+      nodePackages.ts-node
+      plantuml
+      jdk21
+    ];
+
+    # Docker
+    virtualisation.docker.enable = true;
+  };
 }

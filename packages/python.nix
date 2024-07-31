@@ -1,14 +1,24 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+
+let
+  cfg = config.programs.python;
+in
+
+with lib;
 
 {
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  options.packages.python.enable = mkEnableOption "Enable Python support";
 
-  environment.systemPackages = with pkgs; [
-    # Python
-    python311
-    python311Packages.pip
-    python311Packages.numpy
-    python311Packages.pillow
-  ];
+  config = mkIf cfg.enable {
+    # Allow unfree packages
+    nixpkgs.config.allowUnfree = true;
+
+    environment.systemPackages = with pkgs; [
+      # Python
+      python311
+      python311Packages.pip
+      python311Packages.numpy
+      python311Packages.pillow
+    ];
+  };
 }
