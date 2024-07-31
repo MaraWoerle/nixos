@@ -1,5 +1,7 @@
 { config, pkgs, lib, ... }:
 
+with lib;
+
 {
   config = mkIf config.plasma.enable {
     # Allow unfree packages
