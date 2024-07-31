@@ -22,6 +22,7 @@ with lib;
         ./editors.nix
         ./zsh.nix
       ];
+
       nixpkgs.config.allowUnfree = true;
 
       environment.systemPackages = with pkgs; [

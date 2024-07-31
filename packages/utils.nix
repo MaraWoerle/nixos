@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 {
-  config = mkIf config.programs.plasma.enable {
+  config = mkIf config.plasma.enable {
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
