@@ -3,11 +3,12 @@
 with lib;
 
 {
+  imports = [
+    ./nano.nix
+  ];
+
   config = mkMerge [
     ({
-      imports = [
-        ./nano.nix
-      ];
       environment.systemPackages = with pkgs; [
         # Editors and IDEs
         emacs
