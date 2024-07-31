@@ -56,5 +56,5 @@ with lib;
         libsForQt5.qt5.qtquickcontrols2
       ];
     })
-  ]
+  ];
 }
