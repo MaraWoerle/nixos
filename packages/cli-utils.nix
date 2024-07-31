@@ -9,11 +9,6 @@ with lib;
 {
   options.packages.cli.enable = mkEnableOption "Enable CLI Tools";
 
-  imports = mkIf cfg.enable [
-    ./editors.nix
-    ./zsh.nix
-  ];
-
   config = mkMerge [
     (mkIf (config.programs.steam.enable && cfg.enable) {
       nixpkgs.config.allowUnfree = true;
