@@ -7,7 +7,6 @@ with lib;
     users.defaultUserShell = pkgs.zsh;
 
     programs.zsh = {
-      enable = true;
       enableLsColors = true;
       enableCompletion = true;
       autosuggestions.enable = true;
