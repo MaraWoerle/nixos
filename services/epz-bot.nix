@@ -50,8 +50,16 @@ with lib;
         ensureUsers = [
           {
             name = "epz_bot";
+            ensurePermissions = {
+              "epz_dbs.*" = "ALL PRIVILEGES";
+              "epz_dbs_test.*" = "ALL PRIVILEGES";
+            };
           }
         ];
+      };
+      networking.firewall = {
+        allowedTCPPorts = [ 3306 ];
+        allowedUDPPorts = [ 3306 ];
       };
     })
     (mkIf bot-cfg.enable {
@@ -72,21 +80,6 @@ with lib;
         };
       };
     })
-    (mkIf bot-cfg.enable-db {
-      # Database
-      services.mysql = {
-        initialDatabases = [ { name = "epz_dbs"; } ];
-        ensureDatabases = [ "epz_dbs" ];
-        ensureUsers = [
-          {
-            name = "epz_bot";
-            ensurePermissions = {
-              "epz_dbs.*" = "ALL PRIVILEGES";
-            };
-          }
-        ];
-      };
-    })
     (mkIf test-cfg.enable {
       # Test-Bot
       systemd.services.epz-test-bot = {
@@ -103,21 +96,6 @@ with lib;
             ExecStart = "${pkgs.nodejs}/bin/node ${test-cfg.directory}/build/index.js";
             User = "root";
         };
-      };
-    })
-    (mkIf test-cfg.enable-db {
-      # Test-Database
-      services.mysql = {
-        initialDatabases = [ { name = "epz_dbs_test"; } ];
-        ensureDatabases = [ "epz_dbs_test" ];
-        ensureUsers = [
-          {
-            name = "epz_bot";
-            ensurePermissions = {
-              "epz_dbs_test.*" = "ALL PRIVILEGES";
-            };
-          }
-        ];
       };
     })
   ];
