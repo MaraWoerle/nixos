@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.packages.cpp;
+  cfg = config.programs.cpp;
   qt = config.programs.qt;
 in
 
