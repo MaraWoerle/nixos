@@ -7,7 +7,7 @@ in
 with lib;
 
 {
-  options.packages.python.enable = mkEnableOption "Enable Python support";
+  options.programs.python.enable = mkEnableOption "Enable Python support";
 
   config = mkIf cfg.enable {
     # Allow unfree packages
