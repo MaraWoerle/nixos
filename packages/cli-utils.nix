@@ -1,13 +1,13 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.packages.cli;
+  cfg = config.programs.cli;
 in
 
 with lib;
 
 {
-  options.packages.cli.enable = mkEnableOption "Enable CLI Tools";
+  options.programs.cli.enable = mkEnableOption "Enable CLI Tools";
 
   config = mkMerge [
     (mkIf (config.programs.steam.enable && cfg.enable) {
