@@ -28,6 +28,7 @@ with lib;
         getopt
         git
         gparted
+        lm_sensors
         openssl
         pciutils
         pkg-config
