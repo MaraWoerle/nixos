@@ -18,6 +18,7 @@ with lib;
       gnuplot
       lcov
       libGL
+      nodejs
       typescript
       nodePackages.ts-node
       plantuml
