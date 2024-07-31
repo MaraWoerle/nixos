@@ -28,6 +28,7 @@ with lib;
         getopt
         git
         gparted
+        imagemagick
         lm_sensors
         openssl
         pciutils
