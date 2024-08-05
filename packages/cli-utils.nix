@@ -29,6 +29,7 @@ with lib;
         getopt
         git
         gparted
+        gtop
         imagemagick
         lm_sensors
         openssl
