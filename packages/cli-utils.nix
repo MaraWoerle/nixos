@@ -32,6 +32,7 @@ with lib;
         imagemagick
         lm_sensors
         openssl
+        openssh
         pciutils
         pkg-config
         tree

@@ -31,9 +31,6 @@ with lib;
           ExecStart = "/run/current-system/sw/bin/sh commit.sh";
           User = "root";
       };
-      timerConfig = {
-        OnCalendar = "daily";
-      }
     };
     systemd.timers.commits = {
       wantedBy = [ "timers.target" ];
