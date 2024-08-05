@@ -3,6 +3,7 @@
 {
   imports =
     [
+      ./commits.nix
       ./epson.nix
       ./epz-bot.nix
       ./jellyfin.nix
