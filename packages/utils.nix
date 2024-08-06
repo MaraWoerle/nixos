@@ -30,6 +30,7 @@ with lib;
       spotify
       thunderbird
       xsane
+      via
       vlc
       zapzap
     ];
