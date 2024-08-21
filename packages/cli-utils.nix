@@ -23,6 +23,7 @@ with lib;
       environment.systemPackages = with pkgs; [
         # Tools
         busybox
+        dust
         direnv
         doxygen
         figlet
