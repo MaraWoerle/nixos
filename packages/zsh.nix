@@ -23,12 +23,13 @@ with lib;
         theme = "rkj-repos";
       };
 
-      promptInit = ''eval "$(zoxide init zsh)"'';
+      promptInit = ''eval "$(zoxide init zsh; atuin init zsh)"'';
     };
     environment.systemPackages = with pkgs; [
       fzf
       zoxide
       thefuck
+      atuin
     ];
 
     console.colors = [

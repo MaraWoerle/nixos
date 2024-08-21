@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config = mkIf config.plasma.enable {
+  config = mkIf (config.plasma.enable || config.programs.hyprland.enable) {
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
@@ -24,6 +24,7 @@ with lib;
       keepassxc
       kcalc
       krita
+      kitty
       libreoffice
       logseq
       putty
