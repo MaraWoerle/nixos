@@ -1,13 +1,13 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.services.commits;
+  cfg = config.services.dailys;
 in
 
 with lib;
 
 {
-  options.services.commits = {
+  options.services.dailys = {
     enable = mkEnableOption "Enable the Commit Service";
 
     directory = mkOption {
@@ -19,8 +19,8 @@ with lib;
   };
 
   config = mkIf cfg.enable {
-    systemd.services.commits = {
-      description = "Commit-Service";
+    systemd.services.dailys = {
+      description = "Daily-Service";
       wantedBy = ["timers.target"];
       unitConfig = {
         RequiresMountsFor = "${cfg.directory}";
@@ -28,7 +28,7 @@ with lib;
       serviceConfig = {
           Type = "oneshot";
           WorkingDirectory = "${cfg.directory}";
-          ExecStart = "/run/current-system/sw/bin/sh commit.sh";
+          ExecStart = "/run/current-system/sw/bin/sh start.sh";
           User = "root";
       };
     };
