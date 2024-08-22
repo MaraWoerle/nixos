@@ -10,7 +10,7 @@
       "en_GB.UTF-8/UTF-8"
       "de_DE.UTF-8/UTF-8"
     ];
-    .extraLocaleSettings = {
+    extraLocaleSettings = {
       LANGUAGE = "en_GB.UTF-8";
       LC_ALL = "de_DE.UTF-8";
       LC_ADDRESS = "de_DE.UTF-8";
