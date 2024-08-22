@@ -5,7 +5,7 @@
     consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "de";
     defaultLocale = "en_GB.UTF-8";
-    .supportedLocales = [
+    supportedLocales = [
       "C.UTF-8/UTF-8"
       "en_GB.UTF-8/UTF-8"
       "de_DE.UTF-8/UTF-8"
