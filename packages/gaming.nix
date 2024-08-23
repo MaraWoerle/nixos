@@ -15,7 +15,10 @@ with lib;
 
     environment.systemPackages = with pkgs; [
       # Gaming
-      discord
+      (pkgs.discord.override {
+        withOpenASAR = true;
+        withVencord = true;
+      })
       lutris
       prismlauncher
       protontricks

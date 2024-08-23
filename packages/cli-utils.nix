@@ -33,6 +33,8 @@ with lib;
         gtop
         imagemagick
         lm_sensors
+        lsscsi
+        makemkv
         openssl
         openssh
         pciutils
