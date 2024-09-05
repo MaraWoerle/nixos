@@ -26,9 +26,6 @@ with lib;
     ];
 
     # Docker
-    virtualisation.docker = {
-      enable = true;
-      enableNvidia = true;
-    };
+    virtualisation.docker.enable = true;
   };
 }

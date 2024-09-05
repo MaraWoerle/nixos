@@ -17,16 +17,17 @@ with lib;
       # Gaming
       (pkgs.discord.override {
         withOpenASAR = true;
-        withVencord = true;
       })
       lutris
       prismlauncher
       protontricks
-      spotify
+      # spotify
+      # spicetify-cli
       steam
       vesktop
       wine
       winetricks
+      xwaylandvideobridge
     ];
 
     # Steam
