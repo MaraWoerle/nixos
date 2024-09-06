@@ -9,7 +9,10 @@ with lib;
     programs.zsh = {
       enableLsColors = true;
       enableCompletion = true;
-      autosuggestions.enable = true;
+      autosuggestions = {
+        enable = true;
+        highlightStyle = "fg=13";
+      };
       syntaxHighlighting.enable = true;
 
       shellAliases = {
@@ -55,10 +58,7 @@ with lib;
     # Nerd Fonts
     fonts.packages = with pkgs; [
       (nerdfonts.override { fonts = [
-        "Inconsolata"
-        "InconsolataGo"
         "Hack"
-        "Noto"
       ]; })
     ];
   };

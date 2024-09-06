@@ -24,6 +24,10 @@ with lib;
   config = mkIf cfg.enable {
     # Display Manager
     services = {
+      picom = {
+        enable = true;
+        shadow = true;
+      };
       displayManager = {
         defaultSession = "none+i3";
         autoLogin = {
