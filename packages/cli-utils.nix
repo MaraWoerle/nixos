@@ -22,6 +22,7 @@ with lib;
 
       environment.systemPackages = with pkgs; [
         # Tools
+        acpi
         busybox
         dust
         direnv
@@ -31,6 +32,7 @@ with lib;
         git
         gparted
         gtop
+        hyfetch
         imagemagick
         lm_sensors
         lsscsi
