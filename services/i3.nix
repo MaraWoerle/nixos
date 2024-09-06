@@ -52,6 +52,7 @@ with lib;
         windowManager.i3 = {
           enable = true;
           extraPackages = with pkgs; [
+            flameshot
             rofi
             feh
             i3status
