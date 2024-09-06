@@ -43,7 +43,7 @@ with lib;
       "006bbd" #34-Blue
       "5c4a94" #35-Purple
       "009abd" #36-Cyan
-      "8b9096" #37-Grey
+      "c5ccd4" #37-Grey
 
       "212d43" #40-Light-Black
       "dd3d7d" #41-Light-Red
@@ -52,7 +52,7 @@ with lib;
       "0087e1" #44-Light-Blue
       "856cd9" #45-Light-Purple
       "00b4dd" #46-Light-Cyan
-      "c5ccd4" #47-Light-Grey
+      "edf5ff" #47-Light-Grey
     ];
 
     # Nerd Fonts
