@@ -53,7 +53,7 @@ with lib;
           enable = true;
           extraPackages = with pkgs; [
             rofi
-            dmenu
+            feh
             i3status
             i3lock
             i3blocks
