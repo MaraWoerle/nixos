@@ -32,6 +32,7 @@ with lib;
         git
         gparted
         gtop
+        hd-idle
         hyfetch
         imagemagick
         lm_sensors
@@ -41,6 +42,7 @@ with lib;
         openssh
         pciutils
         pkg-config
+        smartmontools
         tree
         screen
       ];

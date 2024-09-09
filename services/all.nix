@@ -6,6 +6,7 @@
       ./daily.nix
       ./epson.nix
       ./epz-bot.nix
+      ./hd-idle.nix
       ./i3.nix
       ./jellyfin.nix
       ./local-backup.nix
