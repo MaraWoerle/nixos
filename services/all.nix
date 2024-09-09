@@ -17,5 +17,6 @@
       ./satisfactory.nix
       ./searxng.nix
       ./sound.nix
+      ./thinkfan.nix
     ];
 }

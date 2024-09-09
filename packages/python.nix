@@ -15,10 +15,11 @@ with lib;
 
     environment.systemPackages = with pkgs; [
       # Python
-      python311
+      python311Full
       python311Packages.pip
       python311Packages.numpy
       python311Packages.pillow
+      python311Packages.tkinter
     ];
   };
 }

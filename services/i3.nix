@@ -41,6 +41,10 @@ with lib;
           layout = "de";
           variant = "";
         };
+        libinput = {
+          enable = true;
+          touchpad.naturalScrolling = false;
+        };
         desktopManager = {
           xterm.enable = false;
           xfce = {
@@ -58,6 +62,10 @@ with lib;
             i3status
             i3lock
             i3blocks
+            lm_sensors
+            numlockx
+            playerctl
+            thinkfan
           ];
         };
       };
