@@ -19,25 +19,14 @@ with lib;
         '';
       };
 
-      db = mkOption {
-        type = with types; submodule {
-          options = {
-            enable = mkEnableOption "Enable the Database";
-            backup = mkOption {
-              type = with types; submodule {
-                options = {
-                  enable = mkEnableOption "Enable the Backup";
-                  path = mkOption {
-                   type = with types; uniq str;
-                   description = ''
-                     Directory of the backup.
-                   '';
-                  };
-                };
-              };
-            };
-          };
-        };
+      
+      db-enable = mkEnableOption "Enable the Database";
+      db-backup-enable = mkEnableOption "Enable the Backup";
+      db-backup-path = mkOption {
+       type = with types; uniq str;
+       description = ''
+         Directory of the backup.
+       '';
       };
     };
 
@@ -52,20 +41,8 @@ with lib;
         '';
       };
 
-      db = mkOption {
-        type = with types; submodule {
-          options = {
-            enable = mkEnableOption "Enable the Database";
-            backup = mkOption {
-              type = with types; submodule {
-                options = {
-                  enable = mkEnableOption "Enable the Backup";
-                };
-              };
-            };
-          };
-        };
-      };
+      db-enable = mkEnableOption "Enable the Database";
+      db-backup-enable = mkEnableOption "Enable the Backup";
     };
   };
 
@@ -74,7 +51,7 @@ with lib;
       # NodeJS
       environment.systemPackages = [ pkgs.nodejs ];
     })
-    (mkIf (bot-cfg.db.enable || test-cfg.db.enable) {
+    (mkIf (bot-cfg.db-enable || test-cfg.db-enable) {
       # Database
       services.mysql = {
         enable = true;
@@ -91,8 +68,8 @@ with lib;
       };
       services.mysqlBackup = {
         user = "root";
-        enable = bot-cfg.db.backup.enable || test-cfg.db.backup.enable;
-        location = bot-cfg.db.backup.path;
+        enable = bot-cfg.db-backup-enable || test-cfg.db-backup-enable;
+        location = bot-cfg.db-backup-path;
         calendar = "7 01:15:00";
       };
       networking.firewall = {
@@ -100,12 +77,12 @@ with lib;
         allowedUDPPorts = [ 3306 ];
       };
     })
-    (mkIf bot-cfg.db.backup.enable {
+    (mkIf bot-cfg.db-backup-enable {
       services.mysqlBackup.databases = [
         "epz_dbs"
       ];
     })
-    (mkIf test-cfg.db.backup.enable {
+    (mkIf test-cfg.db-backup-enable {
       services.mysqlBackup.databases = [
         "epz_dbs_test"
       ];
