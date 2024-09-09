@@ -56,6 +56,7 @@ with lib;
         windowManager.i3 = {
           enable = true;
           extraPackages = with pkgs; [
+            brightnessctl
             flameshot
             rofi
             feh
