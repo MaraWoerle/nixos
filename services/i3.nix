@@ -35,15 +35,19 @@ with lib;
           user = cfg.autologin-user;
         };
       };
+      libinput = {
+        enable = true;
+        touchpad.naturalScrolling = false;
+        mouse = {
+          accelProfile = "flat";
+          accelSpeed = "-0.1";
+        };
+      };
       xserver = {
         enable = true;
         xkb = {
           layout = "de";
           variant = "";
-        };
-        libinput = {
-          enable = true;
-          touchpad.naturalScrolling = false;
         };
         desktopManager = {
           xterm.enable = false;
@@ -65,6 +69,7 @@ with lib;
             i3blocks
             lm_sensors
             numlockx
+            pavucontrol
             playerctl
             thinkfan
           ];
