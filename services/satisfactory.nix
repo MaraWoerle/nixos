@@ -59,6 +59,7 @@ with lib;
 
     networking = {
       firewall = {
+        enable = false;
         allowedUDPPorts = [ 15777 15000 7777 27015 ];
         allowedUDPPortRanges = [ { from = 27031; to = 27036; } ];
         allowedTCPPorts = [ 27015 27036 ];
@@ -76,20 +77,18 @@ with lib;
           ${cfg.extraSteamCmdArgs} \
           validate \
           +quit
-        ${pkgs.patchelf}/bin/patchelf --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 /var/lib/satisfactory/SatisfactoryDedicatedServer/Engine/Binaries/Linux/UnrealServer-Linux-Shipping
+        ${pkgs.patchelf}/bin/patchelf --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 /var/lib/satisfactory/SatisfactoryDedicatedServer/Engine/Binaries/Linux/FactoryServer-Linux-Shipping
         ln -sfv /var/lib/satisfactory/.steam/steam/linux64 /var/lib/satisfactory/.steam/sdk64
         mkdir -p /var/lib/satisfactory/SatisfactoryDedicatedServer/FactoryGame/Saved/Config/LinuxServer
         ${pkgs.crudini}/bin/crudini --set /var/lib/satisfactory/SatisfactoryDedicatedServer/FactoryGame/Saved/Config/LinuxServer/Game.ini '/Script/Engine.GameSession' MaxPlayers ${toString cfg.maxPlayers}
         ${pkgs.crudini}/bin/crudini --set /var/lib/satisfactory/SatisfactoryDedicatedServer/FactoryGame/Saved/Config/LinuxServer/ServerSettings.ini '/Script/FactoryGame.FGServerSubsystem' mAutoPause ${if cfg.autoPause then "True" else "False"}
         ${pkgs.crudini}/bin/crudini --set /var/lib/satisfactory/SatisfactoryDedicatedServer/FactoryGame/Saved/Config/LinuxServer/ServerSettings.ini '/Script/FactoryGame.FGServerSubsystem' mAutoSaveOnDisconnect ${if cfg.autoSaveOnDisconnect then "True" else "False"}
       '';
-      script = ''
-        /var/lib/satisfactory/SatisfactoryDedicatedServer/Engine/Binaries/Linux/UnrealServer-Linux-Shipping FactoryGame -multihome=${cfg.address}
-      '';
       serviceConfig = {
         Restart = "always";
         User = "satisfactory";
         Group = "satisfactory";
+        ExecStart = "/run/current-system/sw/bin/sh /var/lib/satisfactory/SatisfactoryDedicatedServer/FactoryServer.sh";
         WorkingDirectory = "/var/lib/satisfactory";
       };
       environment = {
