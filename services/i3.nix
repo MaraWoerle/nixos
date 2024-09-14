@@ -37,6 +37,7 @@ with lib;
           size = 10;
           deviation = 5.0;
         };
+        settings.corner-radius = 3;
       };
       displayManager = {
         defaultSession = "none+i3";
