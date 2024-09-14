@@ -14,6 +14,7 @@ with lib;
       blender
       brave
       davinci-resolve
+      dolphin
       ffmpeg
       filezilla
       firefox
@@ -27,8 +28,10 @@ with lib;
       kitty
       libreoffice
       logseq
+      cinnamon.nemo
       putty
       spotify
+      xfce.thunar
       thunderbird
       xsane
       via

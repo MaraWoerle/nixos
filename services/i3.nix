@@ -19,6 +19,11 @@ with lib;
       default = "";
       type = with types; uniq str;
     };
+
+    blur-method = mkOption {
+      default = "";
+      type = with types; uniq str;
+    };
   };
 
   config = mkIf cfg.enable {
@@ -27,6 +32,11 @@ with lib;
       picom = {
         enable = true;
         shadow = true;
+        settings.blur = {
+          method = cfg.blur-method;
+          size = 10;
+          deviation = 5.0;
+        };
       };
       displayManager = {
         defaultSession = "none+i3";
@@ -51,11 +61,6 @@ with lib;
         };
         desktopManager = {
           xterm.enable = false;
-          xfce = {
-            enable = false;
-            noDesktop = true;
-            enableXfwm = false;
-          };
         };
         windowManager.i3 = {
           enable = true;
