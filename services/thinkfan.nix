@@ -5,23 +5,23 @@
     sensors = [
       {
         type = "hwmon";
-        query = "/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp3_input";
+        query = "/sys/class/hwmon/hwmon8/temp3_input";
       }
       {
         type = "hwmon";
-        query = "/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp4_input";
+        query = "/sys/class/hwmon/hwmon8/temp4_input";
       }
       {
         type = "hwmon";
-        query = "/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp1_input";
+        query = "/sys/class/hwmon/hwmon8/temp1_input";
       }
       {
         type = "hwmon";
-        query = "/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp5_input";
+        query = "/sys/class/hwmon/hwmon8/temp5_input";
       }
       {
         type = "hwmon";
-        query = "/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp2_input";
+        query = "/sys/class/hwmon/hwmon8/temp2_input";
       }
     ];
 

@@ -77,6 +77,8 @@ with lib;
             pavucontrol
             playerctl
             thinkfan
+            xorg.xbacklight
+            xorg.xset
           ];
         };
       };
