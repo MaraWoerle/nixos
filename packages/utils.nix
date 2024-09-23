@@ -28,6 +28,7 @@ with lib;
       kitty
       libreoffice
       logseq
+      okular
       cinnamon.nemo
       putty
       spotify
