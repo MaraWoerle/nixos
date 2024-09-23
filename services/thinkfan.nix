@@ -2,37 +2,30 @@
 
 {
   services.thinkfan = {
-    sensors = [
-      {
-        type = "hwmon";
-        query = "/sys/class/hwmon/hwmon8/temp3_input";
-      }
-      {
-        type = "hwmon";
-        query = "/sys/class/hwmon/hwmon8/temp4_input";
-      }
-      {
-        type = "hwmon";
-        query = "/sys/class/hwmon/hwmon8/temp1_input";
-      }
-      {
-        type = "hwmon";
-        query = "/sys/class/hwmon/hwmon8/temp5_input";
-      }
-      {
-        type = "hwmon";
-        query = "/sys/class/hwmon/hwmon8/temp2_input";
-      }
-    ];
-
-    fans = [
-      {
-        # type = "tpacpi";
-        # query = "/proc/acpi/ibm/fan";
-        type = "hwmon";
-        query = "/sys/class/hwmon/hwmon1/pwm1";
-      }
-    ];
+    settings = {
+      sensors = [
+        {
+          hwmon = "/sys/class/hwmon";
+          name = "coretemp";
+          indices = [
+            1
+            2
+            3
+            4
+            5
+          ];
+        }
+      ];
+      fans = [
+        {
+          hwmon = "/sys/class/hwmon";
+          name = "thinkpad";
+          indices = [
+            1
+          ];
+        }
+      ];
+    };
     
     levels = [
       #[0 0 40]
