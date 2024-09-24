@@ -73,6 +73,7 @@ with lib;
             i3status
             i3lock
             i3blocks
+            i3-auto-layout
             lm_sensors
             numlockx
             pavucontrol
