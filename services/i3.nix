@@ -75,6 +75,7 @@ with lib;
             i3blocks
             i3-auto-layout
             lm_sensors
+            cinnamon.nemo
             numlockx
             pavucontrol
             playerctl
