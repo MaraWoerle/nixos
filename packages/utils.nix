@@ -17,6 +17,7 @@ with lib;
       ffmpeg
       filezilla
       firefox
+      geeqie
       gimp
       github-desktop
       handbrake
