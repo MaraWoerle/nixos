@@ -22,28 +22,8 @@ with lib;
 
       environment.systemPackages = with pkgs; [
         # Tools
-        acpi
-        busybox
-        dust
-        direnv
-        doxygen
-        figlet
-        getopt
-        git
-        gparted
-        gtop
-        hd-idle
-        hyfetch
-        imagemagick
-        lm_sensors
-        lsscsi
-        openssl
-        openssh
-        pciutils
-        pkg-config
-        smartmontools
-        tree
-        screen
+        makemkv
+        steamcmd
       ];
     })
   ];
