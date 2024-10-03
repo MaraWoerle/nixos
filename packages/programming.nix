@@ -23,6 +23,7 @@ with lib;
       nodePackages.ts-node
       plantuml
       jdk21
+      vscode
     ];
 
     # Docker

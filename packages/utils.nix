@@ -17,13 +17,14 @@ with lib;
       ffmpeg
       filezilla
       firefox
+      geany
       geeqie
       gimp
       github-desktop
       handbrake
       inkscape
       keepassxc
-      kcalc
+      qalculate-gtk
       krita
       kitty
       libreoffice
