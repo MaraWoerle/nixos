@@ -82,6 +82,13 @@ with lib;
             thinkfan
             xorg.xbacklight
             xorg.xset
+            # Themes
+            rose-pine-gtk-theme
+            rose-pine-icon-theme
+            rose-pine-cursor
+            sweet-folders
+            catppuccin-cursors
+            tokyonight-gtk-theme
           ];
         };
       };

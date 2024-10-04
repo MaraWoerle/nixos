@@ -32,6 +32,7 @@ with lib;
       okular
       putty
       spotify
+      themechanger
       thunderbird
       xsane
       via
