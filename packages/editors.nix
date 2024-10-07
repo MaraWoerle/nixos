@@ -16,7 +16,7 @@ with lib;
         vim
       ];
     })
-    (mkIf config.plasma.enable {
+    (mkIf (config.plasma.enable || config.i3.enable) {
       nixpkgs.config.allowUnfree = true;
 
       environment.systemPackages = with pkgs; [
