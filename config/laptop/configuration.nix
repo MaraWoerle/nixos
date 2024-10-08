@@ -5,7 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../all.nix
-      ../secrets/all.nix
+      ../../secrets/all.nix
     ];
 
   fonts.packages = with pkgs; [
