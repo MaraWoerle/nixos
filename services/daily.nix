@@ -22,6 +22,7 @@ with lib;
     systemd.services.dailys = {
       description = "Daily-Service";
       wantedBy = ["timers.target"];
+      wants = [ "network-online.target" ];
       unitConfig = {
         RequiresMountsFor = "${cfg.directory}";
       };
