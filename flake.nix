@@ -8,18 +8,33 @@
   };
   outputs = inputs@{ self, nixpkgs, home-manager, spicetify-nix, agenix, ... }:
   {
-    nixosConfigurations.nixos-laptop = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
-      modules = [ 
-        agenix.nixosModules.default
-        home-manager.nixosModules.home-manager
-        spicetify-nix.nixosModules.default
+    nixosConfigurations = {
+      nixos-laptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [ 
+          agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
+          spicetify-nix.nixosModules.default
 
-        # Files
-        ./config/laptop/configuration.nix
-        ./home-manager/home-manager.nix
-      ];
+          # Files
+          ./config/laptop/configuration.nix
+          ./home-manager/home-manager.nix
+        ];
+      };
+      nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [ 
+          agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
+          spicetify-nix.nixosModules.default
+
+          # Files
+          ./config/desktop/configuration.nix
+          ./home-manager/home-manager.nix
+        ];
+      }; 
     };
   };
 }
