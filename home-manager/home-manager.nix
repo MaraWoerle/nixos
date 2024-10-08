@@ -5,7 +5,6 @@
     # ./plasma.nix
     ./spicetify.nix
   ];
-
   home-manager.users.mara = { config, pkgs, ... }:
 
   {

@@ -9,6 +9,19 @@
   outputs = inputs@{ self, nixpkgs, home-manager, spicetify-nix, agenix, ... }:
   {
     nixosConfigurations = {
+      nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [ 
+          agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
+          spicetify-nix.nixosModules.default
+
+          # Files
+          ./config/desktop/configuration.nix
+          ./home-manager/home-manager.nix
+        ];
+      };
       nixos-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
@@ -22,7 +35,7 @@
           ./home-manager/home-manager.nix
         ];
       };
-      nixos = nixpkgs.lib.nixosSystem {
+      nipogi-server = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [ 
@@ -31,10 +44,10 @@
           spicetify-nix.nixosModules.default
 
           # Files
-          ./config/desktop/configuration.nix
+          ./config/nipogi-server/configuration.nix
           ./home-manager/home-manager.nix
         ];
-      }; 
+      };
     };
   };
 }

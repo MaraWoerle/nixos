@@ -47,12 +47,21 @@ with lib;
           A secret key for the instance
         '';
       };
+
+      envFile = mkOption {
+        type = with types; nullOr str;
+        default = null;
+        description = ''
+          An environment file
+        '';
+      };
     };
   };
 
   config = mkIf cfg.enable {
     services.searx = {
       enable = true;
+      environmentFile = cfg.envFile;
       package = pkgs.searxng.overrideAttrs (old: {
         postInstall = old.postInstall + ''
           cp ${cfg.design-files}/img/favicon.png $out/lib/python3.11/site-packages/searx/static/themes/simple/img/favicon.png

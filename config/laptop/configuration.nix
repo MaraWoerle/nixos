@@ -5,7 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../all.nix
-      ../../secrets/all.nix
+      ../../secrets/networks.nix
     ];
 
   fonts.packages = with pkgs; [
@@ -64,7 +64,6 @@
     user = "mara";
     dataDir = "/home/mara/Documents";
     configDir = "/home/mara/Documents/.config/syncthing";
-    guiAddress = "0.0.0.0:8384";
     settings = {
       devices = {
         "Mara - Desktop" = { id = "ZWNNQ4G-XMSPHED-VXQJRMO-XF46ALN-5OP7ZWL-G56CCWG-RMFN5C4-PKOHEAI"; };
