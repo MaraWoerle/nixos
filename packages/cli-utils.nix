@@ -23,6 +23,7 @@ with lib;
       environment.systemPackages = with pkgs; [
         # Tools
         acpi
+        btop
         busybox
         dust
         direnv
@@ -31,7 +32,6 @@ with lib;
         getopt
         git
         gparted
-        gtop
         hd-idle
         hyfetch
         imagemagick
