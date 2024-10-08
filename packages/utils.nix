@@ -9,33 +9,34 @@ with lib;
 
     environment.systemPackages = with pkgs; [
       # Tools
-      anydesk
-      audacity
-      blender
-      brave
-      davinci-resolve
+      audacity # Audio Editor
+      blender # 3D Software
+      brave # Chromium-Browser
+      davinci-resolve # Video Editor
       ffmpeg
-      filezilla
-      firefox
-      geeqie
-      gimp
+      filezilla # Remote File Explorer
+      firefox # Browser
+      geany # Text Editor
+      geeqie # Image Viewer
+      gimp # Image Editor
       github-desktop
-      handbrake
-      inkscape
-      keepassxc
-      kcalc
-      krita
-      kitty
-      libreoffice
-      logseq
-      okular
-      putty
-      spotify
-      thunderbird
-      xsane
-      via
-      vlc
-      zapzap
+      handbrake # Video Encoder
+      inkscape # Image Editor
+      keepassxc # Password Manager
+      qalculate-gtk # Calculator
+      krita # Image Editor
+      kitty # Terminal
+      libreoffice # Office Suite
+      logseq # Markdown Notes App
+      okular # PDF Viewer
+      putty # SSL Client
+      spotify # Music Player
+      themechanger # change GTK Themes
+      thunderbird # Email Client
+      xsane # Scanning utility
+      via # QMK Keyboard programmer
+      vlc # Video player
+      zapzap # Whatsapp Client
     ];
 
     # VirtualBox

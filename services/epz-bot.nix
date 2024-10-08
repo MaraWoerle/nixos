@@ -19,14 +19,13 @@ with lib;
         '';
       };
 
-      
       db-enable = mkEnableOption "Enable the Database";
       db-backup-enable = mkEnableOption "Enable the Backup";
       db-backup-path = mkOption {
-       type = with types; uniq str;
-       description = ''
-         Directory of the backup.
-       '';
+        type = with types; uniq str;
+        description = ''
+          Directory of the backup.
+        '';
       };
     };
 

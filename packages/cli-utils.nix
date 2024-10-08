@@ -29,13 +29,13 @@ with lib;
         doxygen
         figlet
         getopt
-        git
-        gparted
-        gtop
-        hd-idle
-        hyfetch
-        imagemagick
-        lm_sensors
+        git # Version manager
+        gparted # Partition Manager
+        gtop # Usage screen
+        hd-idle # HD-Spindown
+        hyfetch # Stats
+        imagemagick # Image converter
+        lm_sensors # CPU Temp
         lsscsi
         openssl
         openssh
