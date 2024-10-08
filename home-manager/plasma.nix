@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
     imports = [
-      <plasma-manager/modules>
+      inputs.plasma-manager.nixosModules.default
     ];
 
     programs.plasma = {

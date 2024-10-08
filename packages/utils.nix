@@ -30,7 +30,7 @@ with lib;
       logseq # Markdown Notes App
       okular # PDF Viewer
       putty # SSL Client
-      spotify # Music Player
+      # spotify # Music Player
       themechanger # change GTK Themes
       thunderbird # Email Client
       xsane # Scanning utility

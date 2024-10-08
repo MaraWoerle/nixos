@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, inputs, ... }:
 
 {
   nix = {
@@ -11,4 +11,7 @@
       "flakes"
     ];
   };
+  environment.systemPackages = [
+    inputs.agenix.packages."${pkgs.system}".default
+  ];
 }
