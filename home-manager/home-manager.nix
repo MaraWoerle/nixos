@@ -1,14 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixpkgs, home-manager ... }:
 
 {
   imports = [
-    <home-manager/nixos>
+    home-manager.nixosModules.default
   ];
 
   home-manager.users.mara = { config, pkgs, ... }:
 
   {
-    inputs.spicetify-nix.url = "github:the-argus/spicetify-nix";
     imports = [
       ./plasma.nix
     ];
