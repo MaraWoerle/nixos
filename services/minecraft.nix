@@ -33,6 +33,7 @@ with lib;
       description = "Minecraft Server";
       wantedBy = ["multi-user.target"];
       after = ["network-online.target"];
+      wants = [ "network-online.target" ];
       unitConfig = {
         RequiresMountsFor = "${cfg.directory}";
       };

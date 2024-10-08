@@ -68,6 +68,8 @@ with lib;
 
     systemd.services.satisfactory = {
       wantedBy = [ "multi-user.target" ];
+      after = ["network-online.target"];
+      wants = [ "network-online.target" ];
       preStart = ''
         ${pkgs.steamcmd}/bin/steamcmd \
           +force_install_dir /var/lib/satisfactory/SatisfactoryDedicatedServer \

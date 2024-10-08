@@ -91,6 +91,7 @@ with lib;
       systemd.services.epz-bot = {
         description = "EPZ-Discord-Bot";
         wantedBy = ["multi-user.target"];
+        wants = [ "network-online.target" ];
         after = ["network-online.target"];
         unitConfig = {
           RequiresMountsFor = "${bot-cfg.directory}";
@@ -109,7 +110,7 @@ with lib;
       systemd.services.epz-test-bot = {
         description = "EPZ-Discord-Test-Bot";
         wantedBy = ["multi-user.target"];
-        after = ["network-online.target"];
+        wants = [ "network-online.target" ];
         unitConfig = {
           RequiresMountsFor = "${test-cfg.directory}";
         };
