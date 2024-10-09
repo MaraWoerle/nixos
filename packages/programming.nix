@@ -20,6 +20,7 @@ with lib;
       libGL
       nodejs
       typescript
+      texlive.combined.scheme-full
       nodePackages.ts-node
       plantuml
       jdk21
