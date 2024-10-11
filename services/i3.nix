@@ -66,12 +66,15 @@ with lib;
         windowManager.i3 = {
           enable = true;
           extraPackages = with pkgs; [
+            bc
+            betterlockscreen
             brightnessctl
             flameshot
             rofi
             feh
             i3status
             i3lock
+            i3lock-color
             i3blocks
             i3-auto-layout
             lm_sensors
@@ -80,6 +83,9 @@ with lib;
             pavucontrol
             playerctl
             thinkfan
+            xorg.xrandr
+            xorg.xrdb
+            xorg.xdpyinfo
             xorg.xbacklight
             xorg.xset
             # Themes
