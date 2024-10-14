@@ -27,6 +27,15 @@ with lib;
   };
 
   config = mkIf cfg.enable {
+    xdg = {
+      icons.enable = true;
+      mime.enable = true;
+    };
+    qt = {
+      enable = true;
+      platformTheme = "qt5ct";
+      style = "kvantum";
+    };
     # Display Manager
     services = {
       picom = {
@@ -78,10 +87,12 @@ with lib;
             i3blocks
             i3-auto-layout
             lm_sensors
+            libsForQt5.qtstyleplugin-kvantum
             cinnamon.nemo
             numlockx
             pavucontrol
             playerctl
+            qt5ct
             thinkfan
             xorg.xrandr
             xorg.xrdb
@@ -95,6 +106,8 @@ with lib;
             sweet-folders
             catppuccin-cursors
             tokyonight-gtk-theme
+            catppuccin-kvantum
+            adwaita-qt
           ];
         };
       };

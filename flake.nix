@@ -5,8 +5,9 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     plasma-manager.url = "github:nix-community/plasma-manager";
     agenix.url = "github:ryantm/agenix";
+    lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
   };
-  outputs = inputs@{ self, nixpkgs, plasma-manager, home-manager, spicetify-nix, agenix, ... }:
+  outputs = inputs@{ self, nixpkgs, plasma-manager, home-manager, spicetify-nix, agenix, lix-module, ... }:
   {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
@@ -16,6 +17,7 @@
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           spicetify-nix.nixosModules.default
+          lix-module.nixosModules.default
           {
             
             home-manager.useGlobalPkgs = true;
@@ -35,6 +37,7 @@
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           spicetify-nix.nixosModules.default
+          lix-module.nixosModules.default
           {
             
             home-manager.useGlobalPkgs = true;
@@ -54,6 +57,7 @@
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           spicetify-nix.nixosModules.default
+          lix-module.nixosModules.default
           {
             
             home-manager.useGlobalPkgs = true;
