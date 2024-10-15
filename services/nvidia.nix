@@ -12,6 +12,10 @@ with lib;
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      nvtopPackages.full
+    ];
+  
     # Boot Driver
     boot.initrd.kernelModules = [ "nvidia" ];
     boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
