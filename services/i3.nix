@@ -33,8 +33,8 @@ with lib;
     };
     qt = {
       enable = true;
-      platformTheme = "qt5ct";
-      style = "kvantum";
+      platformTheme = "gtk2";
+      style = "breeze";
     };
     # Display Manager
     services = {

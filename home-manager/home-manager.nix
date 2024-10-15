@@ -16,23 +16,13 @@
       homeDirectory = "/home/mara";
       stateVersion = "24.05"; # Please read the comment before changing.
       packages = with pkgs; [
-        (catppuccin-kvantum.override {
-          accent = "Blue";
-          variant = "Macchiato";
-        })
       ];
       # file = {
       # };
-      sessionVariables = {
-        # QT_QPA_PLATFORMTHEME = "qt5ct";
-      };
+      # sessionVariables = {
+      # };
     };
 
-    qt = {
-      enable = true;
-      platformTheme = "qtct";
-      style.name = "kvantum";
-    };
 
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
