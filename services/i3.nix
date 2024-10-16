@@ -27,6 +27,15 @@ with lib;
   };
 
   config = mkIf cfg.enable {
+    xdg = {
+      icons.enable = true;
+      mime.enable = true;
+    };
+    qt = {
+      enable = true;
+      platformTheme = "gtk2";
+      style = "breeze";
+    };
     # Display Manager
     services = {
       picom = {
@@ -66,20 +75,28 @@ with lib;
         windowManager.i3 = {
           enable = true;
           extraPackages = with pkgs; [
+            bc
+            betterlockscreen
             brightnessctl
             flameshot
             rofi
             feh
             i3status
             i3lock
+            i3lock-color
             i3blocks
             i3-auto-layout
             lm_sensors
+            libsForQt5.qtstyleplugin-kvantum
             cinnamon.nemo
             numlockx
             pavucontrol
             playerctl
+            qt5ct
             thinkfan
+            xorg.xrandr
+            xorg.xrdb
+            xorg.xdpyinfo
             xorg.xbacklight
             xorg.xset
             # Themes
@@ -89,6 +106,8 @@ with lib;
             sweet-folders
             catppuccin-cursors
             tokyonight-gtk-theme
+            catppuccin-kvantum
+            adwaita-qt
           ];
         };
       };

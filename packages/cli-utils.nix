@@ -23,8 +23,10 @@ with lib;
       environment.systemPackages = with pkgs; [
         # Tools
         acpi
-        btop
         busybox
+        (pkgs.btop.override {
+          cudaSupport = true;
+        })
         dust
         direnv
         doxygen

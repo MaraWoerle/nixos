@@ -39,6 +39,13 @@
         "I.M.P Staff".psk = "@PSK_IMP@";
         "BI-YH 262".psk = "@PSK_BIYH262@";
         "Kiwifi".psk = "@PSK_KIWIFI@";
+        "Motorola Edge".psk = "@PSK_MOTOROLAEDGE@";
+        "eduroam".auth = ''
+          key_mgmt=WPA-EAP
+          eap=PEAP
+          identity="@USER_EDUROAM@"
+          password="@PSK_EDUROAM@"
+        '';
       };
     };
   };

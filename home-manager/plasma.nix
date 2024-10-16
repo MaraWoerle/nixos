@@ -1,10 +1,6 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
-    imports = [
-      inputs.plasma-manager.nixosModules.default
-    ];
-
     programs.plasma = {
     enable = true;
     shortcuts = {
