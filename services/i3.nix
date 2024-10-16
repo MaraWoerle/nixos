@@ -94,6 +94,7 @@ with lib;
             playerctl
             qt5ct
             thinkfan
+            xidlehook
             xorg.xrandr
             xorg.xrdb
             xorg.xdpyinfo
