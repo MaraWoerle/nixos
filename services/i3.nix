@@ -36,6 +36,10 @@ with lib;
       platformTheme = "gtk2";
       style = "breeze";
     };
+    programs.xss-lock = {
+      enable = true;
+      lockerCommand = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
+    };
     # Display Manager
     services = {
       picom = {

@@ -25,8 +25,8 @@ with lib;
         enable = true;
         theme = "rkj-repos";
       };
-
-      promptInit = ''eval "$(zoxide init zsh; atuin init zsh)"'';
+      
+      promptInit = ''eval "$(zoxide init zsh; atuin init zsh; thefuck --alias)"'';
     };
     environment.systemPackages = with pkgs; [
       fzf
