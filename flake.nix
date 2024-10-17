@@ -70,6 +70,26 @@
           ./home-manager/home-manager.nix
         ];
       };
+      nixos-raspi = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [ 
+          agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
+          spicetify-nix.nixosModules.default
+          lix-module.nixosModules.default
+          {
+            
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
+          }
+
+          # Files
+          ./config/raspi/configuration.nix
+          ./home-manager/home-manager.nix
+        ];
+      };
     };
   };
 }
