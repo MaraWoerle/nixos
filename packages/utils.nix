@@ -27,8 +27,10 @@ with lib;
       krita # Image Editor
       kitty # Terminal
       libreoffice # Office Suite
+      librewolf
       logseq # Markdown Notes App
       okular # PDF Viewer
+      obs-studio
       putty # SSL Client
       # spotify # Music Player
       themechanger # change GTK Themes
