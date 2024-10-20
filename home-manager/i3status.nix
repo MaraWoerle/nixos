@@ -14,7 +14,7 @@
             }
             {
               block = "net";
-              format = " $icon $speed_down.eng(prefix:K) $speed_up.eng(prefix:K) $ip {$signal_strength |}";
+              format = " $icon $speed_down.eng(prefix:K,w:3) $speed_up.eng(prefix:K,w:3) $ip {$signal_strength |}";
               interval = 1;
             }
             {
