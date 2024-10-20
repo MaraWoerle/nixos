@@ -46,6 +46,7 @@
           identity="@USER_EDUROAM@"
           password="@PSK_EDUROAM@"
         '';
+        "FRITZ!Box 7530 FM".psk = "@PSK_FRITZBOX7530@";
       };
     };
   };
