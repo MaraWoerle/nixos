@@ -8,9 +8,10 @@
 
   {
     imports = [
+      ./i3.nix
       ./plasma.nix
     ];
-    
+
     home = {
       username = "mara";
       homeDirectory = "/home/mara";

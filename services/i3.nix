@@ -91,6 +91,7 @@ with lib;
             i3blocks
             i3-auto-layout
             lm_sensors
+            lxde.lxrandr
             libsForQt5.qtstyleplugin-kvantum
             cinnamon.nemo
             numlockx

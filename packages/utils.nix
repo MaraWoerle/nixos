@@ -27,12 +27,12 @@ with lib;
       krita # Image Editor
       kitty # Terminal
       libreoffice # Office Suite
-      librewolf
+      librewolf # Browser
+      lxappearance # Theme changer
       logseq # Markdown Notes App
       okular # PDF Viewer
       obs-studio
       putty # SSL Client
-      # spotify # Music Player
       themechanger # change GTK Themes
       thunderbird # Email Client
       xsane # Scanning utility
