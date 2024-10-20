@@ -81,10 +81,10 @@ in
           "${modifier}+Shift+Return" = "exec rofi -show combi";
           "${modifier}+space" = "exec rofi -show combi";
           # Multimedia
-          "XF86AudioRaiseVolume" = "exec --no-startup-id amixer -q sset Master 5%+ unmute && pkill -RTMIN+10 i3blocks";
-          "XF86AudioLowerVolume" = "exec --no-startup-id amixer -q sset Master 5%- unmute && pkill -RTMIN+10 i3blocks";
-          "XF86AudioMute" = "exec --no-startup-id amixer -q sset Master toggle && pkill -RTMIN+10 i3blocks";
-          "XF86AudioMicMute" = "exec --no-startup-id amixer -q sset Capture toggle && pkill -RTMIN+10 i3blocks";
+          "XF86AudioRaiseVolume" = "exec --no-startup-id amixer -q sset Master 5%+ unmute";
+          "XF86AudioLowerVolume" = "exec --no-startup-id amixer -q sset Master 5%- unmute";
+          "XF86AudioMute" = "exec --no-startup-id amixer -q sset Master toggle";
+          "XF86AudioMicMute" = "exec --no-startup-id amixer -q sset Capture toggle";
           # Media player controls
           "XF86AudioPlay" = "exec playerctl -p spotify play-pause";
           "XF86AudioPause" = "exec playerctl -p spotify play-pause";
