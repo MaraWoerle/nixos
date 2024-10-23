@@ -33,7 +33,7 @@
   # HDD Spindown
   services.hd-idle = {
     enable = true;
-    args = "-i 60 -a sdc -i 600 -a sda -i 60";
+    args = "-i 60 -a sdc -i 1800 -a sda -i 60";
   };
 
   # Backup
@@ -162,7 +162,7 @@
   };
 
   # Satisfactory Server
-  services.satisfactory.enable = true;
+  services.satisfactory.enable = false;
 
   # Jellyfin
   services.jellyfin = {

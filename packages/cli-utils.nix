@@ -24,9 +24,7 @@ with lib;
         # Tools
         acpi
         busybox
-        (pkgs.btop.override {
-          cudaSupport = true;
-        })
+        btop
         dust
         direnv
         doxygen

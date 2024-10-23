@@ -14,6 +14,9 @@ with lib;
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       nvtopPackages.full
+      (pkgs.btop.override {
+        cudaSupport = true;
+      })
     ];
   
     # Boot Driver
