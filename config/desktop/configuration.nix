@@ -54,7 +54,7 @@
 
   # Sound
   sound.enable = true;
-  
+
   # Backup
   local-backup = {
     enable = true;
@@ -84,7 +84,7 @@
   # Epson
   epson ={
     enable = true;
-    ip-address = "192.168.1.102";
+    ip-address = "192.168.1.100";
   };
 
   # Configure console keymap
