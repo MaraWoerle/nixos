@@ -162,7 +162,7 @@
   };
 
   # Satisfactory Server
-  services.satisfactory.enable = false;
+  services.satisfactory.enable = true;
 
   # Jellyfin
   services.jellyfin = {

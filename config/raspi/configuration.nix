@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
@@ -12,7 +12,11 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
-  boot.kernelPackages = (import (builtins.fetchTarball https://gitlab.com/vriska/nix-rpi5/-/archive/main.tar.gz)).legacyPackages.aarch64-linux.linuxPackages_rpi5;
+  # raspberry-pi-nix.board = "bcm2712";
+  boot.kernelPackages = (import (builtins.fetchTarball {
+    url = "https://gitlab.com/vriska/nix-rpi5/-/archive/main.tar.gz";
+    sha256 = "sha256:12110c0sbycpr5sm0sqyb76aq214s2lyc0a5yiyjkjhrabghgdcb";
+  })).legacyPackages.aarch64-linux.linuxPackages_rpi5;
 
   networking.hostName = "nixos-raspi"; # Define your hostname.
   # Pick only one of the below networking options.
