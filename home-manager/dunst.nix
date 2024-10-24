@@ -49,8 +49,8 @@ in
 
         urgency_normal = {
           background = "#443c53";
-          foreground = "#f6c177";
-          frame_color = "#f6c177";
+          foreground = "#e0def4";
+          frame_color = "#e0def4";
         };
 
         urgency_critical = {
