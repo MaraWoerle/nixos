@@ -43,6 +43,7 @@ with lib;
         pciutils
         pkg-config
         smartmontools
+        spotify-player
         tree
         screen
       ];
