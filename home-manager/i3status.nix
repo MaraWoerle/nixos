@@ -53,7 +53,7 @@
     })
     (lib.mkIf osConfig.nvidia.enable {
       programs.i3status-rust.bars.top.blocks = [
-        
+
         {
           block = "nvidia_gpu";
           format = "{ $icon $utilization $memory $temperature |}";

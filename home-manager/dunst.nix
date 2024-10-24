@@ -21,8 +21,8 @@ in
           progress_bar_corner_radius = 3;
           progress_bar_horizontal_alignement = "center";
 
-          padding = 10;
-          horizontal_padding = 10;
+          padding = 5;
+          horizontal_padding = 5;
 
           frame_width = 3;
           corner_radius = 3;
@@ -35,7 +35,7 @@ in
           icon_theme = "rose-pine-icons";
           enable_recursive_icon_lookup = true;
           notification_limit = 3;
-          origin = "top-center";
+          origin = "top-right";
 
           background = "#393552";
           foreground = "#e0def4";
