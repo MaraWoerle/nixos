@@ -13,7 +13,7 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
+  fileSystems."/" = lib.mkForce
     { device = "/dev/disk/by-uuid/ce50761b-45e0-4b3a-9132-c9be0f5a3b02";
       fsType = "ext4";
     };

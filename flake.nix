@@ -1,11 +1,13 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-    home-manager.url = "github:nix-community/home-manager";
+    # home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     plasma-manager.url = "github:nix-community/plasma-manager";
     agenix.url = "github:ryantm/agenix";
     lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+    # raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix";
   };
   outputs = inputs@{ self, nixpkgs, plasma-manager, home-manager, spicetify-nix, agenix, lix-module, ... }:
   {
@@ -78,6 +80,7 @@
           home-manager.nixosModules.home-manager
           spicetify-nix.nixosModules.default
           lix-module.nixosModules.default
+          # raspberry-pi-nix.nixosModules.raspberry-pi
           {
             
             home-manager.useGlobalPkgs = true;
