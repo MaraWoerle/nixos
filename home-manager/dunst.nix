@@ -14,7 +14,7 @@ in
           dmenu = "${pkgs.rofi}/bin/rofi -dmenu";
 
           width = "(0, 400)";
-          offset = "(5, 10)";
+          offset = "(5, 5)";
 
           progress_bar_min_width = 380;
           progress_bar_max_width = 380;
