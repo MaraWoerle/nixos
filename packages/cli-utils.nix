@@ -23,12 +23,15 @@ with lib;
       environment.systemPackages = with pkgs; [
         # Tools
         acpi
+        bat
         busybox
         btop
         dust
         direnv
         doxygen
+        exa
         figlet
+        fzf
         getopt
         git # Version manager
         gparted # Partition Manager
