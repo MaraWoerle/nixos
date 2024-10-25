@@ -29,7 +29,7 @@ with lib;
         dust
         direnv
         doxygen
-        exa
+        eza
         figlet
         fzf
         getopt
