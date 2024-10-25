@@ -110,7 +110,9 @@ with lib;
             rose-pine-gtk-theme
             rose-pine-icon-theme
             rose-pine-cursor
+            dracula-icon-theme
             sweet-folders
+            sweet
             catppuccin-cursors
             tokyonight-gtk-theme
             catppuccin-kvantum
