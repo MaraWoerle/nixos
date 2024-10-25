@@ -79,6 +79,7 @@ with lib;
         windowManager.i3 = {
           enable = true;
           extraPackages = with pkgs; [
+            ark
             bc
             betterlockscreen
             brightnessctl
