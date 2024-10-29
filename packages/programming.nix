@@ -25,6 +25,9 @@ with lib;
       plantuml
       jdk21
       vscode
+      # Rust
+      rustc
+      cargo
     ];
 
     # Docker
