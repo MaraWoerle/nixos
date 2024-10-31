@@ -125,7 +125,7 @@
   networking.firewall = {
     enable = false;
     allowedTCPPorts = [ 27015 27036 8384 22000 ];
-    allowedUDPPorts = [ 15777 15000 7777 27015 22000 21027 ];
+    allowedUDPPorts = [ 69 15777 15000 7777 27015 22000 21027 ];
     allowedUDPPortRanges = [ { from = 27031; to = 27036; } ];
   };
 
@@ -158,11 +158,11 @@
   # Minecraft Server
   services.mc-server = {
     enable = true;
-    directory = "/home/mara/Documents/Servers/Minecraft/ATM-9-Skyblock";
+    directory = "/home/mara/Documents/Servers/Minecraft/Stoneblock-3";
   };
 
   # Satisfactory Server
-  services.satisfactory.enable = true;
+  services.satisfactory.enable = false;
 
   # Jellyfin
   services.jellyfin = {
