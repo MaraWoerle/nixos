@@ -50,7 +50,6 @@
       };
     };
   };
-  
 
   programs = {
     cli.enable = true;
