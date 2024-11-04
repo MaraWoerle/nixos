@@ -47,6 +47,7 @@ with lib;
         pkg-config
         smartmontools
         spotify-player
+        termpdfpy
         tree
         screen
       ];

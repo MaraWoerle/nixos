@@ -105,7 +105,7 @@ in
           # Fullscreen
           "${modifier}+Shift+f" = "fullscreen toggle";
           # start Terminal
-          "${modifier}+Return" = "exec alacritty";
+          "${modifier}+Return" = "exec kitty";
           # Kill Window
           "${modifier}+Shift+q" = "kill";
           # File Explorer
