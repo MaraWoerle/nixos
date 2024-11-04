@@ -16,6 +16,12 @@
     "electron-27.3.11"
   ];
 
+  # Printer
+  epson ={
+    enable = true;
+    ip-address = "192.168.1.100";
+  };
+
   # Fan Control
   services.thinkfan.enable = true;
 
