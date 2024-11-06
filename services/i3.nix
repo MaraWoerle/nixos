@@ -76,9 +76,13 @@ with lib;
         desktopManager = {
           xterm.enable = false;
         };
+        displayManager.lightdm.greeters.slick = {
+          enable = true;
+        };
         windowManager.i3 = {
           enable = true;
           extraPackages = with pkgs; [
+            arandr
             alacritty
             ark
             bc
@@ -93,6 +97,7 @@ with lib;
             i3blocks
             i3-auto-layout
             lm_sensors
+            lxappearance
             lxde.lxrandr
             libsForQt5.qtstyleplugin-kvantum
             cinnamon.nemo
