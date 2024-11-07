@@ -27,7 +27,7 @@
 
   i3 = {
     enable = true;
-    autologin = false;
+    autologin = true;
     autologin-user = "mara";
   };
 
