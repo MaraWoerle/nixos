@@ -69,7 +69,6 @@ in
           { command = "xidlehook --not-when-fullscreen --not-when-audio --timer 300 'brightnessctl set 50%' 'brightnessctl set 100%' --timer 60 'brightnessctl set 100%; betterlockscreen -l dim' '' --timer 60 'brightnessctl set 50%' 'brightnessctl set 100%'"; }
           { command = "betterlockscreen -u ~/Documents/Syncthing/Desktop-Backgrounds"; }
           { command = "xss-lock betterlockscreen -l dim"; }
-          { command = "numlockx on"; }
           { command = "i3-auto-layout"; }
         ];
         keybindings = {
@@ -141,6 +140,7 @@ in
           # Shutdown
           "${modifier}+Shift+Escape" = "exec shutdown -h now";
           "${modifier}+Ctrl+Escape" = "exec reboot";
+          "${modifier}+Escape" = "exit";
           # Resize
           "${modifier}+r" = "mode resize";
         };

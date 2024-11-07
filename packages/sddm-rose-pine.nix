@@ -5,7 +5,7 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "sddm-rose-pine-theme";
-  version = "1.2";
+  version = "1.0";
   dontBuild = true;
 
   propagatedUserEnvPkgs = [
@@ -13,14 +13,17 @@ stdenvNoCC.mkDerivation rec {
   ];
 
   src = fetchFromGitHub {
-    owner = "lwndhrst";
+    owner = "MaraWoerle";
     repo = "sddm-rose-pine";
     rev = "v${version}";
-    sha256 = "+WOdazvkzpOKcoayk36VLq/6lLOHDWkDykDsy8p87JE=";
+    sha256 = "sha256-Deoaf5EXFD+qD80duw0t2bpujeKXo1zl9uNfRx/e4XA=";
   };
 
   installPhase = ''
     mkdir -p $out/share/sddm/themes
     cp -aR $src $out/share/sddm/themes/rose-pine
+  '';
+
+  postInstall = ''
   '';
 }

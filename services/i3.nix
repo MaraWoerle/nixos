@@ -40,6 +40,7 @@ with lib;
       enable = true;
       lockerCommand = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
     };
+    
     # Display Manager
     services = {
       picom = {
@@ -54,6 +55,11 @@ with lib;
       };
       displayManager = {
         defaultSession = "none+i3";
+        sddm = {
+          enable = true;
+          autoNumlock = true;
+          theme = "rose-pine";
+        };
         autoLogin = {
           enable = cfg.autologin;
           user = cfg.autologin-user;
@@ -76,8 +82,10 @@ with lib;
         desktopManager = {
           xterm.enable = false;
         };
-        displayManager.lightdm.greeters.slick = {
-          enable = true;
+        displayManager = {
+          lightdm.greeters.slick = {
+            # enable = true;
+          };
         };
         windowManager.i3 = {
           enable = true;
@@ -100,10 +108,14 @@ with lib;
             lxappearance
             lxde.lxrandr
             libsForQt5.qtstyleplugin-kvantum
+            micro
             cinnamon.nemo
             numlockx
             pavucontrol
             playerctl
+            libsForQt5.qt5.qtsvg
+            libsForQt5.qt5.qtquickcontrols
+            libsForQt5.qt5.qtgraphicaleffects
             qt5ct
             thinkfan
             xidlehook
@@ -120,9 +132,11 @@ with lib;
             sweet-folders
             sweet
             catppuccin-cursors
+            catppuccin-sddm
             tokyonight-gtk-theme
             catppuccin-kvantum
             adwaita-qt
+            (callPackage ../packages/sddm-rose-pine.nix {})
           ];
         };
       };
