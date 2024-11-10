@@ -158,7 +158,7 @@
   # Minecraft Server
   services.mc-server = {
     enable = true;
-    directory = "/home/mara/Documents/Servers/Minecraft/Stoneblock-3";
+    directory = "/home/mara/Documents/Servers/Minecraft/ATM-0";
   };
 
   # Satisfactory Server

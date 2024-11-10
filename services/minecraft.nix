@@ -52,6 +52,8 @@ with lib;
     };
     environment.systemPackages = with pkgs; [
       jdk21
+      jdk19
+      jdk8
     ];
   };
 }
