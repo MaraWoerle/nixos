@@ -18,10 +18,15 @@
     sha256 = "sha256:12110c0sbycpr5sm0sqyb76aq214s2lyc0a5yiyjkjhrabghgdcb";
   })).legacyPackages.aarch64-linux.linuxPackages_rpi5;
 
-  networking.hostName = "nixos-raspi"; # Define your hostname.
-  # Pick only one of the below networking options.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking = {
+    hostName = "nixos-raspi"; # Define your hostname.
+    interfaces.end0.ipv4.addresses = [{
+      address = "192.168.1.105";
+      prefixLength = 24;
+    }];
+    defaultGateway = "192.168.1.1";
+    wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  };
 
   # Programs
   programs = {
