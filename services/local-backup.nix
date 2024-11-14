@@ -49,6 +49,8 @@ with lib;
 
     # Backup Home Folder
     services.borgbackup.jobs.general = {
+      persistentTimer = true;
+      removableDevice = true;
       paths = cfg.paths;
       encryption = {
         mode = "repokey";

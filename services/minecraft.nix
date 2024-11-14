@@ -47,7 +47,7 @@ with lib;
       };
     };
     networking.firewall = {
-      allowedTCPPorts = [ cfg.port ];
+      allowedTCPPorts = [ cfg.port 8064 ];
       allowedUDPPorts = [ cfg.port ];
     };
     environment.systemPackages = with pkgs; [

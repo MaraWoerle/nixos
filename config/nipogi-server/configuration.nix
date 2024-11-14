@@ -124,8 +124,23 @@
   };
   networking.firewall = {
     enable = false;
-    allowedTCPPorts = [ 27015 27036 8384 22000 ];
-    allowedUDPPorts = [ 69 15777 15000 7777 27015 22000 21027 ];
+    allowedTCPPorts = [
+      27015
+      27036
+      8384
+      22000
+      25565
+      20
+      21
+    ];
+    allowedUDPPorts = [
+      15777
+      15000
+      7777
+      27015
+      22000
+      21027
+    ];
     allowedUDPPortRanges = [ { from = 27031; to = 27036; } ];
   };
 
@@ -157,7 +172,7 @@
 
   # Minecraft Server
   services.mc-server = {
-    enable = true;
+    enable = false;
     directory = "/home/mara/Documents/Servers/Minecraft/ATM-0";
   };
 
@@ -172,6 +187,12 @@
 
   security.rtkit.enable = true;
 
+  services.vsftpd = {
+    enable = true;
+    writeEnable = true;
+    localUsers = true;
+  };
+
   # SMB Share
   services.samba = {
     enable = true;
@@ -182,27 +203,61 @@
         path = "/mnt/DVDs";
         browseable = "yes";
         "read only" = "no";
-        "guest ok" = "no";
+        "guest ok" = "yes";
+        writable = "yes";
+      };
+      Servers = {
+        path = "/home/mara/Documents/Servers";
+        browseable = "yes";
+        "read only" = "no";
+        "guest ok" = "yes";
         writable = "yes";
       };
       Backup = {
         path = "/mnt/Backup";
         browseable = "yes";
         "read only" = "no";
-        "guest ok" = "no";
+        "guest ok" = "yes";
         writable = "yes";
       };
     };
   };
 
+  networking = {
+    nftables = {
+      enable = true;
+      ruleset = ''
+          table ip nat {
+            chain PREROUTING {
+              type nat hook prerouting priority dstnat; policy accept;
+              iifname "ham0" tcp dport 25565 dnat to 192.168.1.104:25565
+            }
+          }
+      '';
+    };
+    nat = {
+      enable = true;
+      internalInterfaces = [ "ham0" ];
+      externalInterface = "enp1s0";
+      forwardPorts = [
+        {
+          sourcePort = 25565;
+          proto = "tcp";
+          destination = "192.168.1.104:25565";
+        }
+      ];
+    };
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mara = {
     isNormalUser = true;
     description = "Mara";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
+
+  services.netboot.enable = true;
 
   # Autologin
   # services.getty.autologinUser = "mara";

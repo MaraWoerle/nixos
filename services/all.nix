@@ -11,6 +11,7 @@
       ./jellyfin.nix
       ./local-backup.nix
       ./minecraft.nix
+      ./netboot.nix
       ./nvidia.nix
       ./openssh.nix
       ./plasma.nix
