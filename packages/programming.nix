@@ -24,6 +24,8 @@ with lib;
       nodePackages.ts-node
       plantuml
       jdk21
+      jdk19
+      jdk8
       vscode
       # Rust
       rustc
