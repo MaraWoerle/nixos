@@ -24,17 +24,6 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/mnt/DVDs" =
-    { device = "/dev/disk/by-uuid/3b22c68e-c233-4bbb-a565-b5bdd4cdc0a6";
-      fsType = "ext4";
-      options = [ "nofail" "x-systemd.automount" ];
-    };
-
-  fileSystems."/mnt/Backup" =
-    { device = "/dev/disk/by-uuid/d07802d5-a0e7-4753-b4a4-ed4a6ce2a891";
-      fsType = "ext4";
-    };
-
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

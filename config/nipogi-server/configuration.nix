@@ -38,7 +38,7 @@
 
   # Backup
   local-backup = {
-    enable = true;
+    enable = false;
     directory = "/mnt/Backup";
     disk-uuid = "d07802d5-a0e7-4753-b4a4-ed4a6ce2a891";
     paths = [
@@ -140,6 +140,9 @@
       27015
       22000
       21027
+      # Valheim
+      2456
+      2457
     ];
     allowedUDPPortRanges = [ { from = 27031; to = 27036; } ];
   };
@@ -199,22 +202,8 @@
     securityType = "user";
     openFirewall = true;
     shares = {
-      DVDs = {
-        path = "/mnt/DVDs";
-        browseable = "yes";
-        "read only" = "no";
-        "guest ok" = "yes";
-        writable = "yes";
-      };
       Servers = {
         path = "/home/mara/Documents/Servers";
-        browseable = "yes";
-        "read only" = "no";
-        "guest ok" = "yes";
-        writable = "yes";
-      };
-      Backup = {
-        path = "/mnt/Backup";
         browseable = "yes";
         "read only" = "no";
         "guest ok" = "yes";
@@ -254,7 +243,7 @@
     isNormalUser = true;
     description = "Mara";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "hamachi" ];
   };
 
   services.netboot.enable = true;
