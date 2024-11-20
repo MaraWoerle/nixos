@@ -35,6 +35,12 @@
       options = [ "nofail" "x-systemd.automount" ];
     };
 
+  fileSystems."/mnt/Archive" =
+    { device = "nixos-nas:/Archive";
+      fsType = "nfs";
+      options = [ "nofail" "x-systemd.automount" ];
+    };
+
   swapDevices = [ {
     device = "/swapfile";
     size = 16*1024;
