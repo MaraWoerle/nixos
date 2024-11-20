@@ -51,7 +51,7 @@
 
   # Backup
   local-backup = {
-    enable = true;
+    enable = false;
     directory = "/mnt/Backup";
     disk-uuid = "0c1f82b9-ab2e-4552-86f8-abf862726ec2";
     paths = [
@@ -89,7 +89,7 @@
     isNormalUser = true;
     description = "Mara";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "hamachi" ];
     packages = with pkgs; [
     ];
   };

@@ -27,12 +27,6 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  # Automount Archive
-  fileSystems."/mnt/Archive" =
-    { device = "/dev/disk/by-uuid/fbf0f180-6d30-4899-b29e-87a001e91973";
-      fsType = "ext4";
-    };
-
   fileSystems."/mnt/SSD" = 
     { device = "/dev/disk/by-uuid/62b64cc9-f1ba-43b3-8973-5673fade882d";
       fsType = "ext4";
