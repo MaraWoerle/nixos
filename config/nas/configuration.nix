@@ -28,7 +28,7 @@
   # HDD Spindown
   services.hd-idle = {
     enable = true;
-    args = "-i 5 -a sdb -i 5 -a sdc -i 5 -a sdd -i 5";
+    args = "-a sdb -i 5 -a sdc -i 5 -a sdd -i 5";
   };
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -52,44 +52,36 @@
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
   };
 
-  # SMB Share
-  services.samba = {
-    enable = true;
-    securityType = "user";
-    openFirewall = true;
-    shares = {
-      DVDs = {
-        "path" = "/mnt/DVDs";
-        "browseable" = "yes";
-        "read only" = "no";
-        "guest ok" = "yes";
-        "writable" = "yes";
-        "create mask" = "0644";
-        "directory mask" = "0755";
-        "force user" = "mara";
-      };
-      Archive = {
-        "path" = "/mnt/Archive";
-        "browseable" = "yes";
-        "read only" = "no";
-        "guest ok" = "yes";
-        "writable" = "yes";
-        "create mask" = "0644";
-        "directory mask" = "0755";
-        "force user" = "mara";
-      };
-      Backup = {
-        "path" = "/mnt/Backup";
-        "browseable" = "yes";
-        "read only" = "no";
-        "guest ok" = "yes";
-        "writable" = "yes";
-        "create mask" = "0644";
-        "directory mask" = "0755";
-        "force user" = "mara";
-      };
+  # File Share
+  fileSystems = {
+    "/export/DVDs" = {
+      device = "/mnt/DVDs";
+      options = [ "bind" ];
     };
-  };  
+    "/export/Archive" = {
+      device = "/mnt/Archive";
+      options = [ "bind" ];
+    };
+    "/export/Backup" = {
+      device = "/mnt/Backup";
+      options = [ "bind" ];
+    };
+  };
+  services.nfs.server = {
+    enable = true;
+    exports = ''
+      /export 192.168.1.0/24(insecure,rw,sync,no_subtree_check,crossmnt,fsid=0)
+      /export/DVDs 192.168.1.0/24(insecure,rw,sync,no_subtree_check)
+      /export/Archive 192.168.1.0/24(insecure,rw,sync,no_subtree_check)
+    '';
+  };
+
+  networking.firewall = {
+    allowedTCPPorts = [
+      # NFS
+      2049
+    ];
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
