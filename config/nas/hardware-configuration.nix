@@ -21,6 +21,24 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  fileSystems."/mnt/DVDs" =
+    { device = "/dev/disk/by-uuid/9ff9415e-6dcf-441c-9cc8-fa0e1bc609b8";
+      fsType = "ext4";
+      options = [ "nofail" ];
+    };
+
+  fileSystems."/mnt/Archive" =
+    { device = "/dev/disk/by-uuid/fbf0f180-6d30-4899-b29e-87a001e91973";
+      fsType = "ext4";
+      options = [ "nofail" ];
+    };
+
+  fileSystems."/mnt/Backup" =
+    { device = "/dev/disk/by-uuid/14e77fb3-2f08-4bb0-a350-ad4b66fa468b";
+      fsType = "ext4";
+      options = [ "nofail" ];
+    };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

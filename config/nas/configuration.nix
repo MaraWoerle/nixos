@@ -49,8 +49,47 @@
   users.users.mara = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
   };
+
+  # SMB Share
+  services.samba = {
+    enable = true;
+    securityType = "user";
+    openFirewall = true;
+    shares = {
+      DVDs = {
+        "path" = "/mnt/DVDs";
+        "browseable" = "yes";
+        "read only" = "no";
+        "guest ok" = "yes";
+        "writable" = "yes";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "force user" = "mara";
+      };
+      Archive = {
+        "path" = "/mnt/Archive";
+        "browseable" = "yes";
+        "read only" = "no";
+        "guest ok" = "yes";
+        "writable" = "yes";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "force user" = "mara";
+      };
+      Backup = {
+        "path" = "/mnt/Backup";
+        "browseable" = "yes";
+        "read only" = "no";
+        "guest ok" = "yes";
+        "writable" = "yes";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "force user" = "mara";
+      };
+    };
+  };  
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
