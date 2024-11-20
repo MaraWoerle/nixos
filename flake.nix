@@ -15,13 +15,12 @@
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
-        modules = [ 
+        modules = [
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           spicetify-nix.nixosModules.default
           lix-module.nixosModules.default
           {
-            
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
@@ -35,13 +34,12 @@
       nixos-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
-        modules = [ 
+        modules = [
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           spicetify-nix.nixosModules.default
           lix-module.nixosModules.default
           {
-            
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
@@ -55,13 +53,12 @@
       nipogi-server = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
-        modules = [ 
+        modules = [
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           spicetify-nix.nixosModules.default
           lix-module.nixosModules.default
           {
-            
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
@@ -75,14 +72,13 @@
       nixos-raspi = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = {inherit inputs;};
-        modules = [ 
+        modules = [
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           spicetify-nix.nixosModules.default
           lix-module.nixosModules.default
           # raspberry-pi-nix.nixosModules.raspberry-pi
           {
-            
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
@@ -90,6 +86,25 @@
 
           # Files
           ./config/raspi/configuration.nix
+          ./home-manager/home-manager.nix
+        ];
+      };
+      nixos-nas = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+          agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
+          spicetify-nix.nixosModules.default
+          lix-module.nixosModules.default
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
+          }
+
+          # Files
+          ./config/nas/configuration.nix
           ./home-manager/home-manager.nix
         ];
       };

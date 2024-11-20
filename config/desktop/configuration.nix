@@ -21,12 +21,6 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
-  # HDD Spindown
-  services.hd-idle = {
-    enable = true;
-    args = "-i 5 -a sda -i 5 -a sdb -i 5";
-  };
-
   # Programs
   programs = {
     cli.enable = true;
@@ -103,7 +97,7 @@
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11"
   ];
-  
+
   system = {
     stateVersion = "24.05";
     autoUpgrade.enable = true;
