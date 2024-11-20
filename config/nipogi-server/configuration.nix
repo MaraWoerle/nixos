@@ -30,12 +30,6 @@
   # VS-Code Server
   programs.nix-ld.enable = true;
 
-  # HDD Spindown
-  services.hd-idle = {
-    enable = true;
-    args = "-i 60 -a sdc -i 1800 -a sda -i 60";
-  };
-
   # Backup
   local-backup = {
     enable = false;
