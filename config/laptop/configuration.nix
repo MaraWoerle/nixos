@@ -42,7 +42,10 @@
       userControlled.enable = true;
       environmentFile = "/run/secrets/wireless.env";
       networks = {
-        "I.M.P Staff".psk = "@PSK_IMP@";
+        "I.M.P Staff" = {
+          psk = "@PSK_IMP@";
+          hidden = true;
+        };
         "BI-YH 262".psk = "@PSK_BIYH262@";
         "Kiwifi".psk = "@PSK_KIWIFI@";
         "Motorola Edge".psk = "@PSK_MOTOROLAEDGE@";
