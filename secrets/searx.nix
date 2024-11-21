@@ -2,7 +2,7 @@
 
 {
   age.secrets = {
-    networks = {
+    searx = {
       file = ./searx.age;
       path = "/run/secrets/searx.env";
       owner = "mara";

@@ -51,19 +51,12 @@
 
   # Backup
   local-backup = {
-    enable = false;
+    enable = true;
     directory = "/mnt/Backup";
-    disk-uuid = "0c1f82b9-ab2e-4552-86f8-abf862726ec2";
     paths = [
-      "/home/mara/Documents"
       "/home/mara/Pictures"
       "/home/mara/.thunderbird"
-      "/home/mara/.config"
       "/home/mara/.mozilla"
-      "/home/mara/.ssh"
-      "/home/mara/.anydesk"
-      "/home/mara/.gitconfig"
-      "/etc/nixos"
     ];
   };
 

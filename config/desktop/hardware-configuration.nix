@@ -15,6 +15,7 @@
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   services.blueman.enable = true;
+  environment.systemPackages = [ pkgs.cifs-utils ];
   
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/7bb79f2f-618a-4280-853c-3e0c7047020d";
@@ -36,6 +37,18 @@
     { device = "/dev/disk/by-uuid/b516c856-3e25-4d96-b2b6-60b869adb343";
       fsType = "ext4";
       options = [ "nofail" "x-systemd.automount" ];
+    };
+  
+  fileSystems."/mnt/Archive" =
+    { device = "nixos-nas:/Archive";
+      fsType = "nfs";
+      options = [ "nofail" "x-systemd.automount" "x-systemd.idle-timeout=600" ];
+    };
+    
+  fileSystems."/mnt/Backup" =
+    { device = "nixos-nas:/Backup";
+      fsType = "nfs";
+      options = [ "nofail" "x-systemd.automount" "x-systemd.idle-timeout=600" ];
     };
 
   swapDevices = [ ];
