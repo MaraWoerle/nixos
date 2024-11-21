@@ -28,7 +28,7 @@
   # HDD Spindown
   services.hd-idle = {
     enable = true;
-    args = "-a sdb -i 5 -a sdc -i 5 -a sdd -i 5";
+    args = "-a /dev/disk/by-label/Memory-Alpha -i 1800 -a /dev/disk/by-label/NCC-1764-Archive -i 60 -a /dev/disk/by-label/NCC-2032-Backup -i 60";
   };
 
   nixpkgs.config.permittedInsecurePackages = [
