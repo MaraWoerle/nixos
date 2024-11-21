@@ -17,6 +17,15 @@
   networking.hostName = "nixos-nas"; # Define your hostname.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
+  # Backup
+  local-backup = {
+    enable = true;
+    directory = "/mnt/Backup";
+    paths = [
+      "/mnt/Archive"
+    ];
+  };
+
   # Programs
   programs = {
     cli.enable = true;
