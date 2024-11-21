@@ -31,7 +31,10 @@ with lib;
       persistentTimer = true;
       removableDevice = true;
       paths = cfg.paths;
-      encryption.mode = "none";
+      encryption = {
+        mode = "repokey";
+        passphrase = "";
+      };
       repo = cfg.directory;
       compression = "auto,zstd";
       startAt = "weekly";
