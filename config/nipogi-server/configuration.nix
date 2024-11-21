@@ -116,29 +116,37 @@
       };
     };
   };
+
   networking.firewall = {
-    enable = false;
+    enable = true;
     allowedTCPPorts = [
-      27015
-      27036
+      #27015
+      #27036
+      #20
+      #21
+      # Syncthing
       8384
       22000
+      # Netboot
+      3000
+      # NFS
+      2049
+      # Minecraft
       25565
-      20
-      21
     ];
     allowedUDPPorts = [
-      15777
-      15000
-      7777
-      27015
+      #15777
+      #15000
+      #7777
+      #27015
+      # Syncthing
       22000
       21027
       # Valheim
       2456
       2457
     ];
-    allowedUDPPortRanges = [ { from = 27031; to = 27036; } ];
+    # allowedUDPPortRanges = [ { from = 27031; to = 27036; } ];
   };
 
   # Searxng
@@ -191,19 +199,18 @@
   };
 
   # SMB Share
-  services.samba = {
-    enable = true;
-    securityType = "user";
-    openFirewall = true;
-    shares = {
-      Servers = {
-        path = "/home/mara/Documents/Servers";
-        browseable = "yes";
-        "read only" = "no";
-        "guest ok" = "yes";
-        writable = "yes";
-      };
+  fileSystems = {
+    "/export/Servers" = {
+      device = "/home/mara/Documents/Servers";
+      options = [ "bind" ];
     };
+  };
+  services.nfs.server = {
+    enable = true;
+    exports = ''
+      /export 192.168.1.0/24(insecure,rw,sync,no_subtree_check,crossmnt,fsid=0)
+      /export/Servers 192.168.1.0/24(insecure,rw,sync,no_subtree_check)
+    '';
   };
 
   networking = {

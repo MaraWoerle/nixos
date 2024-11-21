@@ -24,6 +24,12 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
+  fileSystems."/mnt/DVDs" =
+    { device = "nixos-nas:/DVDs";
+      fsType = "nfs";
+      options = [ "nofail" "x-systemd.automount" "x-systemd.idle-timeout=600" ];
+    };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
