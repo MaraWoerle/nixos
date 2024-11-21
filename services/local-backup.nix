@@ -23,6 +23,14 @@ with lib;
         list of Paths to backup
       '';
     };
+
+    repokey = mkOption {
+      type = with types; uniq str;
+      default = "";
+      description = ''
+        Repokey of the Backup
+      '';
+    };
   };
 
   config = mkIf cfg.enable {
@@ -33,7 +41,7 @@ with lib;
       paths = cfg.paths;
       encryption = {
         mode = "repokey";
-        passphrase = "";
+        passphrase = cfg.repokey;
       };
       repo = cfg.directory;
       compression = "auto,zstd";
