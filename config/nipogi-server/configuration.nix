@@ -32,9 +32,8 @@
 
   # Backup
   local-backup = {
-    enable = false;
+    enable = true;
     directory = "/mnt/Backup";
-    disk-uuid = "d07802d5-a0e7-4753-b4a4-ed4a6ce2a891";
     paths = [
       "/home/mara/Documents"
       "/var/lib/satisfactory"
