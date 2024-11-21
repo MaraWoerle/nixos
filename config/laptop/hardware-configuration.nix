@@ -38,7 +38,7 @@
   fileSystems."/mnt/Archive" =
     { device = "nixos-nas:/Archive";
       fsType = "nfs";
-      options = [ "nofail" "x-systemd.automount" ];
+      options = [ "nofail" "x-systemd.automount" "x-systemd.idle-timeout=300" ];
     };
 
   swapDevices = [ {
