@@ -59,7 +59,7 @@
     settings = {
       devices = {
         "Mara - Desktop" = { id = "ZWNNQ4G-XMSPHED-VXQJRMO-XF46ALN-5OP7ZWL-G56CCWG-RMFN5C4-PKOHEAI"; };
-        "Mara - Handy" = { id = "MXVOA2C-JZGUI2I-PM5GTTA-5OR34QG-VSDF7RO-HA2MRBW-YHWKNG6-HBSGWAS"; };
+        "Mara - Handy" = { id = "JQQ3LWH-7CDIYII-I26J4BD-22ARLTJ-Y3BGB6U-6MOB6EL-VCQDIR6-52AL7QZ"; };
         "Mara - Laptop - Leya" = { id = "NSDSJOJ-QEEUFLC-XIKFRNV-724BSJE-5HYJF27-OMHCPGW-VPRFNSY-6G4TRAW"; };
         "Mara - Laptop" = { id = "O5AZAII-KCE3EQ3-24F3VXC-ML64CBK-CNP4KYF-HO5CPBE-EDQTSHC-LL2BTA7"; };
         "Florian - Desktop" = { id = "WLAE7VU-6O5QO66-V7BPK2B-HOZVREC-ZSEDW3L-ZQSKJFX-UR6TF2S-5KYPJAB"; };
@@ -112,6 +112,13 @@
             "Mara - Laptop"
           ];
         };
+        "Camera" = {
+           id = "hvtbv-u5beb";
+           path = "/mnt/Archive/Images/Camera";
+           devices = [
+             "Mara - Handy"
+           ];
+         };
       };
     };
   };
