@@ -123,13 +123,27 @@
     };
   };
 
+  # SFTP
+  services.vsftpd = {
+    enable = true;
+    writeEnable = true;
+    localUsers = true;
+    extraConfig = ''
+      pasv_enable=Yes
+      pasv_min_port=56250
+      pasv_max_port=56260
+    '';
+  };
+
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [
       #27015
       #27036
-      #20
-      #21
+      # SFTP
+      20
+      21
+      22
       # Syncthing
       8384
       22000
@@ -151,6 +165,10 @@
       # Valheim
       2456
       2457
+    ];
+    allowedTCPPortRanges = [
+    # SFTP
+      { from = 56250; to = 56260; }
     ];
     # allowedUDPPortRanges = [ { from = 27031; to = 27036; } ];
   };
@@ -198,13 +216,7 @@
 
   security.rtkit.enable = true;
 
-  services.vsftpd = {
-    enable = true;
-    writeEnable = true;
-    localUsers = true;
-  };
-
-  # SMB Share
+  # NFS Share
   fileSystems = {
     "/export/Servers" = {
       device = "/home/mara/Documents/Servers";

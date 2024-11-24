@@ -36,6 +36,12 @@
       options = [ "nofail" "x-systemd.automount" "x-systemd.idle-timeout=600" ];
     };
 
+  fileSystems."/mnt/Archive" =
+    { device = "nixos-nas:/Archive";
+      fsType = "nfs";
+      options = [ "nofail" "x-systemd.automount" "x-systemd.idle-timeout=600" ];
+    };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
