@@ -43,7 +43,7 @@ with lib;
         mode = "repokey";
         passphrase = cfg.repokey;
       };
-      repo = "${cfg.directory}::${config.networking.hostName}";
+      repo = "${cfg.directory}";
       compression = "auto,zstd";
       startAt = "weekly";
       prune.keep = {
