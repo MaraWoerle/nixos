@@ -67,24 +67,6 @@
     ];
   };
 
-  # Commits
-  services.dailys = {
-    enable = true;
-    directory = "/home/mara/Commits";
-  };
-
-  # EPZ Bots
-  services = {
-    epz-bot = {
-      enable = true;
-      directory = "/home/mara/Discord-Bot/epz-bot";
-    };
-    epz-test-bot = {
-      enable = true;
-      directory = "/home/mara/Discord-Bot/epz-test-bot";
-    };
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mara = {
     isNormalUser = true;
