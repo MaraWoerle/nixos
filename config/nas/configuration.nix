@@ -83,6 +83,7 @@
       /export/DVDs 192.168.1.0/24(insecure,rw,sync,no_subtree_check)
       /export/Archive 192.168.1.0/24(insecure,rw,sync,no_subtree_check)
       /export/Backup 192.168.1.0/24(insecure,rw,sync,no_subtree_check)
+      /export/Floppy 192.168.1.0/24(insecure,rw,sync,no_subtree_check)
     '';
   };
 
