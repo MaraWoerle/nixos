@@ -23,7 +23,4 @@ stdenvNoCC.mkDerivation rec {
     mkdir -p $out/share/sddm/themes
     cp -aR $src $out/share/sddm/themes/rose-pine
   '';
-
-  postInstall = ''
-  '';
 }

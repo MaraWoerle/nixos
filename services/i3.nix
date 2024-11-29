@@ -31,16 +31,18 @@ with lib;
       icons.enable = true;
       mime.enable = true;
     };
+
     qt = {
       enable = true;
       platformTheme = "gtk2";
       style = "breeze";
     };
+
     programs.xss-lock = {
       enable = true;
       lockerCommand = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
     };
-    
+
     # Display Manager
     services = {
       picom = {
@@ -53,6 +55,7 @@ with lib;
         };
         settings.corner-radius = 3;
       };
+
       displayManager = {
         defaultSession = "none+i3";
         sddm = {
@@ -65,6 +68,7 @@ with lib;
           user = cfg.autologin-user;
         };
       };
+
       libinput = {
         enable = true;
         touchpad.naturalScrolling = false;
@@ -73,20 +77,29 @@ with lib;
           accelSpeed = "-0.1";
         };
       };
+
       xserver = {
         enable = true;
         xkb = {
           layout = "de";
           variant = "";
         };
+
         desktopManager = {
           xterm.enable = false;
+          cinnamon = {
+            extraGSettingsOverrides = ''
+              terminal='kitty'
+            '';
+          };
         };
+
         displayManager = {
           lightdm.greeters.slick = {
             # enable = true;
           };
         };
+
         windowManager.i3 = {
           enable = true;
           extraPackages = with pkgs; [
@@ -109,7 +122,7 @@ with lib;
             lxde.lxrandr
             libsForQt5.qtstyleplugin-kvantum
             micro
-            cinnamon.nemo
+            cinnamon.nemo-with-extensions
             numlockx
             pavucontrol
             playerctl
@@ -137,9 +150,15 @@ with lib;
             catppuccin-kvantum
             adwaita-qt
             (callPackage ../packages/sddm-rose-pine.nix {})
+            (callPackage ../packages/vivid-dark-icons.nix {})
+            (callPackage ../packages/sweet-cursors.nix {})
+            cinnamon.mint-themes
+            cinnamon.mint-x-icons
+            cinnamon.mint-y-icons
           ];
         };
       };
+
       gvfs.enable = true;
       gnome.gnome-keyring.enable = true;
       blueman.enable = true;
