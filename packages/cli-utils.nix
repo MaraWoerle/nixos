@@ -20,6 +20,8 @@ with lib;
     (mkIf cfg.enable {
       nixpkgs.config.allowUnfree = true;
 
+      services.gvfs.enable = true;
+
       environment.systemPackages = with pkgs; [
         # Tools
         acpi

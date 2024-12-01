@@ -45,6 +45,7 @@ with lib;
 
     # VirtualBox
     virtualisation.virtualbox.host.enable = true;
+    virtualisation.virtualbox.host.enableExtensionPack = true;
 
     # QMK & VIA
     hardware.keyboard.qmk.enable = true;

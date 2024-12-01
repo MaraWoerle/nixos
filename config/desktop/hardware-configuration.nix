@@ -28,11 +28,6 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/mnt/SSD" = 
-    { device = "/dev/disk/by-uuid/62b64cc9-f1ba-43b3-8973-5673fade882d";
-      fsType = "ext4";
-    };
-
   fileSystems."/mnt/Games" =
     { device = "/dev/disk/by-uuid/b516c856-3e25-4d96-b2b6-60b869adb343";
       fsType = "ext4";
