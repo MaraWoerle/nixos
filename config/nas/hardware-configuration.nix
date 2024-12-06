@@ -39,11 +39,11 @@
       options = [ "nofail" ];
     };
 
-  fileSystems."/export/Floppy" =
-    { device = "/dev/disk/by-path/pci-0000:00:1a.0-usb-0:1.3:1.0-scsi-0:0:0:0";
-      fsType = "auto";
-      options = [ "x-systemd.automount" "nofail" "noauto" "x-systemd.idle-timeout=60" ];
-    };
+  # fileSystems."/export/Floppy" =
+  #   { device = "/dev/disk/by-path/pci-0000:00:1a.0-usb-0:1.3:1.0-scsi-0:0:0:0";
+  #     fsType = "auto";
+  #     options = [ "x-systemd.automount" "nofail" "noauto" "x-systemd.idle-timeout=60" ];
+  #   };
 
   swapDevices = [ ];
 
