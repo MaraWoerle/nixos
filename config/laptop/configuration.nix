@@ -40,19 +40,19 @@
     wireless = {
       enable = true;
       userControlled.enable = true;
-      environmentFile = "/run/secrets/wireless.env";
+      secretsFile = "/run/secrets/wireless.env";
       networks = {
-        "I.M.P Staff".psk = "@PSK_IMP@";
-        "BI-YH 262".psk = "@PSK_BIYH262@";
-        "Kiwifi".psk = "@PSK_KIWIFI@";
-        "Motorola Edge".psk = "@PSK_MOTOROLAEDGE@";
+        "I.M.P Staff".pskRaw = "ext:PSK_IMP";
+        "BI-YH 262".psk = "ext:PSK_BIYH262";
+        "Kiwifi".psk = "ext:PSK_KIWIFI";
+        "Motorola Edge".psk = "ext:PSK_MOTOROLAEDGE";
         "eduroam".auth = ''
           key_mgmt=WPA-EAP
           eap=PEAP
-          identity="@USER_EDUROAM@"
-          password="@PSK_EDUROAM@"
+          identity="ext:USER_EDUROAM"
+          password="ext:PSK_EDUROAM"
         '';
-        "FRITZ!Box 7530 FM".psk = "@PSK_FRITZBOX7530@";
+        "FRITZ!Box 7530 FM".psk = "ext:PSK_FRITZBOX7530";
       };
     };
   };
@@ -146,7 +146,6 @@
 
   services.openssh.enable = true;
 
-  system.stateVersion = "24.05"; # Did you read the comment?
-
+  system.stateVersion = "24.11";
 }
 
