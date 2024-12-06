@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  sound.enable = true;
   # Pulseaudio config
   hardware.pulseaudio.enable = false;
   # hardware.pulseaudio.extraConfig = "load-module module-echo-cancel aec_method=webrtc source_name=echocancel sink_name=echocancel1";

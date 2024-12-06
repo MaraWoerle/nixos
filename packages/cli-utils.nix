@@ -14,7 +14,7 @@ with lib;
       nixpkgs.config.allowUnfree = true;
 
       environment.systemPackages = with pkgs; [
-        steamPackages.steamcmd
+        steamcmd
       ];
     })
     (mkIf cfg.enable {
@@ -28,11 +28,13 @@ with lib;
         bat
         busybox
         btop
+        cmake
         dust
         direnv
         doxygen
         eza
         figlet
+        file
         fzf
         getopt
         git # Version manager

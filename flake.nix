@@ -1,12 +1,12 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     # home-manager.url = "github:nix-community/home-manager";
-    home-manager.url = "https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz";
+    home-manager.url = "https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     plasma-manager.url = "github:nix-community/plasma-manager";
     agenix.url = "github:ryantm/agenix";
-    lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+    lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
     # raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix";
   };
   outputs = inputs@{ self, nixpkgs, plasma-manager, home-manager, spicetify-nix, agenix, lix-module, ... }:

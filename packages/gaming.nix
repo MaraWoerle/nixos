@@ -19,11 +19,13 @@ with lib;
         withOpenASAR = true;
       })
       lutris
+      nexusmods-app
       prismlauncher
       protontricks
       # spotify
       # spicetify-cli
       steam
+      r2modman
       vesktop
       wine
       winetricks

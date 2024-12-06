@@ -48,9 +48,6 @@
     blur-method = "gaussian";
   };
 
-  # Sound
-  sound.enable = true;
-
   # Backup
   local-backup = {
     enable = true;
@@ -152,7 +149,7 @@
   ];
 
   system = {
-    stateVersion = "24.05";
+    stateVersion = "24.11";
     autoUpgrade.enable = true;
   };
 }

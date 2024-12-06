@@ -43,6 +43,7 @@ in
           border = 3;
           titlebar = false;
         };
+
         bars = [
           {
             position = "top";
@@ -59,18 +60,20 @@ in
             workspaceButtons = false;
           }
         ];
+
         startup = [
-          { command = "dex --autostart --environment i3"; }
-          { command = "nm-applet"; }
-          { command = "xset s off"; }
+          # { command = "dex --autostart --environment i3"; }
+          # { command = "nm-applet"; }
+          # { command = "xset s off"; }
           { command = "xset -dpms"; }
           { command = "xrandr --output HDMI-0 --mode 1920x1080 --rate 60.00 --primary --output DP-2 --mode 1920x1080 --rate 60.00 --left-of HDMI-0 --output DP-0 --mode 1920x1080 --rate 60.00 --right-of HDMI-0"; }
           { command = "feh --randomize --bg-scale ~/Documents/Syncthing/Desktop-Backgrounds"; }
           { command = "xidlehook --not-when-fullscreen --not-when-audio --timer 300 'brightnessctl set 50%' 'brightnessctl set 100%' --timer 60 'brightnessctl set 100%; betterlockscreen -l dim' '' --timer 60 'brightnessctl set 50%' 'brightnessctl set 100%'"; }
-          # { command = "betterlockscreen -u ~/Documents/Syncthing/Desktop-Backgrounds"; }
+          { command = "betterlockscreen -u ~/Documents/Syncthing/Desktop-Backgrounds"; }
           { command = "xss-lock betterlockscreen -l dim"; }
           { command = "i3-auto-layout"; }
         ];
+
         keybindings = {
           # App launch menu
           "${modifier}+d" = "exec rofi -show drun";
@@ -144,6 +147,7 @@ in
           # Resize
           "${modifier}+r" = "mode resize";
         };
+
         modes = {
           resize = {
             "Shift+Up" = "resize grow width 10 px or 10 ppt";

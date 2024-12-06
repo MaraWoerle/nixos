@@ -122,14 +122,14 @@ with lib;
             lxde.lxrandr
             libsForQt5.qtstyleplugin-kvantum
             micro
-            cinnamon.nemo-with-extensions
+            nemo-with-extensions # File Manager
             numlockx
             pavucontrol
             playerctl
             libsForQt5.qt5.qtsvg
             libsForQt5.qt5.qtquickcontrols
             libsForQt5.qt5.qtgraphicaleffects
-            qt5ct
+            libsForQt5.qt5ct
             thinkfan
             xidlehook
             xorg.xrandr
@@ -137,6 +137,7 @@ with lib;
             xorg.xdpyinfo
             xorg.xbacklight
             xorg.xset
+            xss-lock
             # Themes
             rose-pine-gtk-theme
             rose-pine-icon-theme
@@ -152,9 +153,9 @@ with lib;
             (callPackage ../packages/sddm-rose-pine.nix {})
             (callPackage ../packages/vivid-dark-icons.nix {})
             (callPackage ../packages/sweet-cursors.nix {})
-            cinnamon.mint-themes
-            cinnamon.mint-x-icons
-            cinnamon.mint-y-icons
+            mint-themes
+            mint-x-icons
+            mint-y-icons
           ];
         };
       };
