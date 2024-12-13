@@ -2,6 +2,9 @@
 
 let
   modifier = config.wayland.windowManager.sway.config.modifier;
+  wofiCmd = "wofi -O alphabetical -S";
+  lockCommand = "swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png";
+  scrnCmd = "grimblast copysave area";
 in
 
 {
@@ -12,7 +15,7 @@ in
       wrapperFeatures.gtk = true;
       extraOptions = [ "--unsupported-gpu" ];
       xwayland = true;
-      
+
       checkConfig = false;
       config = {
         modifier = "Mod1";
@@ -79,26 +82,12 @@ in
         ];
 
         startup = [
-          # { command = "dex --autostart --environment i3"; }
-          # { command = "nm-applet"; }
-          # { command = "xset s off"; }
           { command = "xset -dpms"; }
-          # { command = "xrandr --output HDMI-0 --mode 1920x1080 --rate 60.00 --primary --output DP-2 --mode 1920x1080 --rate 60.00 --left-of HDMI-0 --output DP-0 --mode 1920x1080 --rate 60.00 --right-of HDMI-0"; }
-          # { command = "swaybg -i $(find /home/mara/Documents/Syncthing/Desktop-Backgrounds/. -type f | shuf -n1) -m fill"; }
-          { command = "xidlehook --not-when-fullscreen --not-when-audio --timer 300 'brightnessctl set 50%' 'brightnessctl set 100%' --timer 60 'brightnessctl set 100%; betterlockscreen -l dim' '' --timer 60 'brightnessctl set 50%' 'brightnessctl set 100%'"; }
-          { command = "betterlockscreen -u ~/Documents/Syncthing/Desktop-Backgrounds"; }
-          { command = "xss-lock betterlockscreen -l dim"; }
-          # { command = "i3-auto-layout"; }
+          { command = "xidlehook --not-when-fullscreen --not-when-audio --timer 300 'brightnessctl set 50%' 'brightnessctl set 100%' --timer 60 'brightnessctl set 100%; ${lockCommand}' '' --timer 60 'brightnessctl set 50%' 'brightnessctl set 100%'"; }
           { command = "wpaperd -d"; }
-          # Themes
-          { command = "gsetting set org.gnome.desktop.interface gtk-theme 'rose-pine-moon'"; }
-          { command = "gsetting set org.gnome.desktop.interface icon-theme 'Vivid-Dark-Icons'"; }
-          { command = "gsetting set org.gnome.desktop.interface cursor-theme 'Sweet-cursors'"; }
         ];
 
-        keybindings = let
-          wofiCmd = "wofi -O alphabetical -S";
-        in {
+        keybindings = {
           # App launch menu
           "${modifier}+d" = "exec ${wofiCmd} drun";
           "${modifier}+s" = "exec cat ~/.ssh/config | grep 'Host ' | cut -d ' ' -f 2 | sort | ${wofiCmd} dmenu | xargs kitty kitten ssh";
@@ -123,11 +112,8 @@ in
           "XF86MonBrightnessUp" = "exec --no-startup-id brightnessctl set +5%";
           "XF86MonBrightnessDown" = "exec --no-startup-id brightnessctl set 5%--autostart";
           # Screenshots
-          "Print" = "exec flameshot full";
-          "Shift+Print" = "exec flameshot gui";
-          "Mod4+Shift+s" = "exec flameshot gui";
-          # Random Background
-          "${modifier}+Shift+b" = "exec feh --randomize --bg-scale ~/Documents/Syncthing/Desktop-Backgrounds";
+          "Shift+Print" = "exec ${scrnCmd}";
+          "Mod4+Shift+s" = "exec ${scrnCmd}";
           # Fullscreen
           "${modifier}+Shift+f" = "fullscreen toggle";
           # start Terminal
@@ -136,8 +122,6 @@ in
           "${modifier}+Shift+q" = "kill";
           # File Explorer
           "${modifier}+a" = "exec nemo";
-          # Keyindicator
-          "--release Caps_Lock" = "exec pkill -SIGRTMIN+11 i3blocks";
           # Shadowrealm
           "${modifier}+Shift+s" = "move scratchpad";
           "${modifier}+Shift+w" = "scratchpad show";
@@ -158,8 +142,8 @@ in
           # toggle tiling / floating
           "${modifier}+Shift+space" = "floating toggle";
           # Lock Screen
-          "${modifier}+Shift+l" = "exec --no-startup-id betterlockscreen -l dim";
-          "Mod4+l" = "exec --no-startup-id betterlockscreen -l dim";
+          "${modifier}+Shift+l" = "exec --no-startup-id ${lockCommand}";
+          "Mod4+l" = "exec --no-startup-id ${lockCommand}";
           # Reload Config
           "${modifier}+Shift+c" = "reload";
           # Restart i3
@@ -281,9 +265,61 @@ in
           };
         };
       };
+
+      # Lockscreen
+      swaylock = {
+        enable = true;
+        settings = {
+          # Background color
+          color="#232136";
+
+          # Layout text colors
+          layout-bg-color="#00000000";
+          layout-border-color="#00000000";
+          layout-text-color="#e0def4";
+
+          # Text color
+          text-color="#3e8fb0";
+          text-clear-color="#9ccfd8";
+          text-caps-lock-color="#f6c177";
+          text-ver-color="#c4a7e7";
+          text-wrong-color="#eb6f92";
+
+          # Highlight segments
+          bs-hl-color="#23213666";
+          key-hl-color="#3e8fb0";
+          caps-lock-bs-hl-color="#23213666";
+          caps-lock-key-hl-color="#f6c177";
+
+          # Highlight segments separator
+          separator-color="#00000000";
+
+          # Inside of the indicator
+          inside-color="#3e8fb055";
+          inside-clear-color="#9ccfd855";
+          inside-caps-lock-color="#f6c17755";
+          inside-ver-color="#c4a7e755";
+          inside-wrong-color="#eb6f9255";
+
+          # Line between the inside and ring
+          line-color="#3e8fb011";
+          line-clear-color="#9ccfd811";
+          line-caps-lock-color="#f6c17711";
+          line-ver-color="#c4a7e711";
+          line-wrong-color="#eb6f9211";
+
+          # Indicator ring
+          ring-color="#3e8fb0aa";
+          ring-clear-color="#9ccfd8aa";
+          ring-caps-lock-color="#f6c177aa";
+          ring-ver-color="#c4a7e7aa";
+          ring-wrong-color="#eb6f92aa";
+        };
+      };
     };
 
     services = {
+      # Notification Manager
       mako = {
         enable = true;
         anchor = "top-right";
@@ -296,6 +332,12 @@ in
         borderColor = "#eb6f92";
         progressColor = "over #3e8fb0";
         textColor = "#e0def4";
+      };
+
+      # Lock Manager
+      screen-locker = {
+        enable = true;
+        lockCmd = lockCommand;
       };
     };
   };

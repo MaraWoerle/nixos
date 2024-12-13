@@ -22,11 +22,6 @@ with lib;
       };
     };
 
-    programs.xss-lock = {
-      enable = true;
-      lockerCommand = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
-    };
-
     # Display Manager
     services = {
       dbus.enable = true;
@@ -59,15 +54,6 @@ with lib;
           layout = "de";
           variant = "";
         };
-
-        desktopManager = {
-          xterm.enable = false;
-          cinnamon = {
-            extraGSettingsOverrides = ''
-              terminal='kitty'
-            '';
-          };
-        };
       };
 
       gvfs.enable = true;
@@ -77,70 +63,16 @@ with lib;
 
     programs.sway = {
       enable = true;
-      # package = pkgs.swayfx;
       extraOptions = [ "--unsupported-gpu" ];
       wrapperFeatures.gtk = true;
       xwayland.enable = true;
     };
 
-    #environment.loginShellInit = ''
-    #  sway --unsupported-gpu
-    #'';
-
     environment.systemPackages = with pkgs; [
-      alsa-utils
-      arandr
-      alacritty
-      ark
-      bc
-      betterlockscreen
-      brightnessctl
-      flameshot
-      feh
-      glib
       i3status
-      lm_sensors
-      lxappearance
-      lxde.lxrandr
-      libsForQt5.qtstyleplugin-kvantum
-      micro
-      nemo-with-extensions # File Manager
-      numlockx
-      pavucontrol # Volume Control
-      playerctl
-      libsForQt5.qt5.qtsvg
-      libsForQt5.qt5.qtquickcontrols
-      libsForQt5.qt5.qtgraphicaleffects
-      libsForQt5.qt5ct
-      seatd
+      grimblast # Screenshot Utility
       swaybg
-      thinkfan
-      xidlehook
-      xorg.xrandr
-      xorg.xrdb
-      xorg.xdpyinfo
-      xorg.xbacklight
-      xorg.xset
-      xss-lock
       wofi # Application launcher
-      # Themes
-      rose-pine-gtk-theme
-      rose-pine-icon-theme
-      rose-pine-cursor
-      dracula-icon-theme
-      sweet-folders
-      sweet
-      catppuccin-cursors
-      catppuccin-sddm
-      tokyonight-gtk-theme
-      catppuccin-kvantum
-      adwaita-qt
-      (callPackage ../../packages/sddm-rose-pine.nix {})
-      (callPackage ../../packages/vivid-dark-icons.nix {})
-      (callPackage ../../packages/sweet-cursors.nix {})
-      mint-themes
-      mint-x-icons
-      mint-y-icons
     ];
   };
 }
