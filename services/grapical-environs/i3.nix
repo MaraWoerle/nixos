@@ -7,7 +7,7 @@ in
 with lib;
 
 {
-  config = mkIf (cfg.enable && cfg.env = "i3") {
+  config = mkIf (cfg.enable && cfg.env == "i3") {
     xdg = {
       icons.enable = true;
       mime.enable = true;
@@ -29,11 +29,6 @@ with lib;
       picom = {
         enable = true;
         shadow = true;
-        settings.blur = {
-          method = cfg.blur-method;
-          size = 10;
-          deviation = 5.0;
-        };
         settings.corner-radius = 3;
       };
 
@@ -131,9 +126,9 @@ with lib;
             tokyonight-gtk-theme
             catppuccin-kvantum
             adwaita-qt
-            (callPackage ../packages/sddm-rose-pine.nix {})
-            (callPackage ../packages/vivid-dark-icons.nix {})
-            (callPackage ../packages/sweet-cursors.nix {})
+            (callPackage ../../packages/sddm-rose-pine.nix {})
+            (callPackage ../../packages/vivid-dark-icons.nix {})
+            (callPackage ../../packages/sweet-cursors.nix {})
             mint-themes
             mint-x-icons
             mint-y-icons

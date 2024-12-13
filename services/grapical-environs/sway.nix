@@ -1,32 +1,13 @@
 { pkgs, config, lib, ... }:
 
 let
-  cfg = config.sway;
+  cfg = config.gra-env;
 in
 
 with lib;
 
 {
-  options.sway = {
-    enable = mkEnableOption "Enable the sway window manager";
-
-    autologin = mkOption {
-      default = false;
-      type = with types; bool;
-    };
-
-    autologin-user = mkOption {
-      default = "";
-      type = with types; uniq str;
-    };
-
-    blur-method = mkOption {
-      default = "";
-      type = with types; uniq str;
-    };
-  };
-
-  config = mkIf cfg.enable {
+  config = mkIf (cfg.enable && cfg.env == "sway") {
     security = {
       rtkit.enable = true;
       polkit.enable = true;
@@ -49,16 +30,6 @@ with lib;
     # Display Manager
     services = {
       dbus.enable = true;
-      picom = {
-        enable = true;
-        shadow = true;
-        settings.blur = {
-          method = cfg.blur-method;
-          size = 10;
-          deviation = 5.0;
-        };
-        settings.corner-radius = 3;
-      };
 
       displayManager = {
         #defaultSession = "sway";
@@ -164,9 +135,9 @@ with lib;
       tokyonight-gtk-theme
       catppuccin-kvantum
       adwaita-qt
-      (callPackage ../packages/sddm-rose-pine.nix {})
-      (callPackage ../packages/vivid-dark-icons.nix {})
-      (callPackage ../packages/sweet-cursors.nix {})
+      (callPackage ../../packages/sddm-rose-pine.nix {})
+      (callPackage ../../packages/vivid-dark-icons.nix {})
+      (callPackage ../../packages/sweet-cursors.nix {})
       mint-themes
       mint-x-icons
       mint-y-icons

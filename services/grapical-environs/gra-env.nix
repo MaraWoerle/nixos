@@ -12,7 +12,7 @@ with lib;
 
     env = mkOption {
       default = "";
-      type = with types; uniq str;
+      type = with types; enum [ "i3" "plasma" "sway" ];
     };
 
     autologin = mkOption {
