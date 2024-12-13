@@ -2,7 +2,7 @@
 
 let
   modifier = config.wayland.windowManager.sway.config.modifier;
-  wofiCmd = "wofi -O alphabetical -S";
+  wofiCmd = "wofi -S";
   lockCommand = "swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png";
   scrnCmd = "grimblast copysave area";
 in
@@ -209,7 +209,6 @@ in
               border-radius: 0px;;
               color: #eb6f92;
               background-color: #393552;
-              
           }
 
           #inner-box {
@@ -235,7 +234,7 @@ in
               margin: 5px;
               border: none;
               color: #e0def4;
-          } 
+          }
 
           #entry:selected {
               background-color: #eb6f92;
@@ -322,11 +321,13 @@ in
       # Notification Manager
       mako = {
         enable = true;
+        icons = false;
+        layer = "overlay";
+        defaultTimeout = 3000;
         anchor = "top-right";
         borderRadius = 3;
         borderSize = 3;
         font = "Hack Nerd Font 10";
-        defaultTimeout = 3000;
         # Theme
         backgroundColor = "#393552";
         borderColor = "#eb6f92";
