@@ -36,7 +36,6 @@ with lib;
     services.xserver.videoDrivers = ["nvidia"];
 
     hardware.nvidia = {
-
       # Modesetting is required.
       modesetting.enable = true;
 
@@ -47,7 +46,7 @@ with lib;
       powerManagement.finegrained = false;
 
       # Use the NVidia open source kernel module
-      open = true;
+      open = false;
 
       # Enable the Nvidia settings menu,
       # accessible via `nvidia-settings`.

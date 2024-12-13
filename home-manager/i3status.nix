@@ -2,7 +2,7 @@
 
 {
   config = lib.mkMerge [
-    (lib.mkIf osConfig.i3.enable {
+    (lib.mkIf (osConfig.i3.enable || osConfig.sway.enable) {
       programs.i3status-rust.bars.top.blocks = [
         {
           block = "memory";
@@ -51,7 +51,7 @@
         }
       ];
     })
-    (lib.mkIf osConfig.nvidia.enable {
+    (lib.mkIf (osConfig.nvidia.enable && (osConfig.i3.enable || osConfig.sway.enable)) {
       programs.i3status-rust.bars.top.blocks = [
 
         {
@@ -61,7 +61,7 @@
         }
       ];
     })
-    (lib.mkIf osConfig.i3.enable {
+    (lib.mkIf (osConfig.i3.enable || osConfig.sway.enable) {
       programs.i3status-rust = {
         enable = true;
         bars = {

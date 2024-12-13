@@ -1,32 +1,13 @@
 { pkgs, config, lib, ... }:
 
 let
-  cfg = config.i3;
+  cfg = config.gra-env;
 in
 
 with lib;
 
 {
-  options.i3 = {
-    enable = mkEnableOption "Enable the i3 window manager";
-
-    autologin = mkOption {
-      default = false;
-      type = with types; bool;
-    };
-
-    autologin-user = mkOption {
-      default = "";
-      type = with types; uniq str;
-    };
-
-    blur-method = mkOption {
-      default = "";
-      type = with types; uniq str;
-    };
-  };
-
-  config = mkIf cfg.enable {
+  config = mkIf (cfg.enable && cfg.env = "i3") {
     xdg = {
       icons.enable = true;
       mime.enable = true;

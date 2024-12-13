@@ -41,7 +41,7 @@
   # programs.hyprland.enable = true;
 
   # WM
-  i3 = {
+  sway = {
     enable = true;
     autologin = true;
     autologin-user = "mara";

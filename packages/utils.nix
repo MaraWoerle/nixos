@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config = mkIf (config.plasma.enable || config.programs.hyprland.enable || config.i3.enable) {
+  config = mkIf (config.plasma.enable || config.programs.hyprland.enable || config.i3.enable || config.sway.enable) {
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 

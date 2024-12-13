@@ -15,7 +15,7 @@ with lib;
 
     environment.systemPackages = with pkgs; [
       # Gaming
-      (pkgs.discord.override {
+      (pkgs.discord-canary.override {
         withOpenASAR = true;
       })
       lutris
