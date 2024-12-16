@@ -5,7 +5,7 @@ let
 in
 
 {
-  config = lib.mkIf (config.plasma.enable || config.programs.hyprland.enable || config.i3.enable) {
+  config = lib.mkIf config.gra-env.enable {
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
       "spotify"
     ];

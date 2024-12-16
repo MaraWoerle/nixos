@@ -3,7 +3,7 @@
 with lib;
 
 {
-  config = mkIf (config.plasma.enable || config.programs.hyprland.enable || config.i3.enable) {
+  config = mkIf config.gra-env.enable {
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
@@ -13,7 +13,10 @@ with lib;
 
     environment.systemPackages = with pkgs; [
       # Tools
+      arandr # Screen Management
+      alacritty # Terminal
       audacity # Audio Editor
+      ark # Compressed File Opener
       blender # 3D Software
       brave # Chromium-Browser
       davinci-resolve # Video Editor
@@ -36,10 +39,13 @@ with lib;
       librewolf # Browser
       lxappearance # Theme changer
       logseq # Markdown Notes App
+      lxde.lxrandr # Monitor Manager
       mission-center # "Task Manager"
+      nemo-with-extensions # File Manager
       okular # PDF Viewer
       obs-studio # Streaming Client
       parabolic # Downloader
+      pavucontrol # Volume Control
       putty # SSL Client
       switcheroo-control # Change GPUs
       themechanger # change GTK Themes
@@ -48,6 +54,30 @@ with lib;
       via # QMK Keyboard programmer
       vlc # Video player
       zapzap # Whatsapp Client
+      # Theme Control
+      libsForQt5.qtstyleplugin-kvantum
+      libsForQt5.qt5.qtsvg
+      libsForQt5.qt5.qtquickcontrols
+      libsForQt5.qt5.qtgraphicaleffects
+      libsForQt5.qt5ct
+      # Themes
+      rose-pine-gtk-theme
+      rose-pine-icon-theme
+      rose-pine-cursor
+      dracula-icon-theme
+      sweet-folders
+      sweet
+      catppuccin-cursors
+      catppuccin-sddm
+      tokyonight-gtk-theme
+      catppuccin-kvantum
+      adwaita-qt
+      (callPackage ./sddm-rose-pine.nix {})
+      (callPackage ./vivid-dark-icons.nix {})
+      (callPackage ./sweet-cursors.nix {})
+      mint-themes
+      mint-x-icons
+      mint-y-icons
     ];
 
     # VirtualBox

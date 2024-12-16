@@ -1,27 +1,13 @@
 { config, lib, ... }:
 
 let
-  cfg = config.plasma;
+  cfg = config.gra-env;
 in
 
 with lib;
 
 {
-  options.plasma = {
-    enable = mkEnableOption "Enable the plasma display manager";
-
-    autologin = mkOption {
-      default = false;
-      type = with types; bool;
-    };
-
-    autologin-user = mkOption {
-      default = "";
-      type = with types; uniq str;
-    };
-  };
-
-  config = mkIf cfg.enable {
+  config = mkIf (cfg.enable && cfg.env == "plasma") {
     # Display Manager
     services = {
       xserver = {

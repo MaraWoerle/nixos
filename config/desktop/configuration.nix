@@ -41,11 +41,11 @@
   # programs.hyprland.enable = true;
 
   # WM
-  i3 = {
+  gra-env = {
     enable = true;
+    env = "sway";
     autologin = true;
     autologin-user = "mara";
-    blur-method = "gaussian";
   };
 
   # Backup

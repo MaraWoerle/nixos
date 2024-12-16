@@ -24,9 +24,12 @@ with lib;
 
       environment.systemPackages = with pkgs; [
         # Tools
+        alsa-utils # Audio Tools
         acpi
         bat
+        bc
         busybox
+        brightnessctl
         btop
         cmake
         dust
@@ -38,6 +41,7 @@ with lib;
         fzf
         getopt
         git # Version manager
+        glib
         gparted # Partition Manager
         gtop # Usage screen
         hd-idle # HD-Spindown
@@ -45,15 +49,28 @@ with lib;
         imagemagick # Image converter
         lm_sensors # CPU Temp
         lsscsi
+        micro # Text Editor
+        numlockx # Numlock Control
         openssl
         openssh
         pciutils
+        playerctl
         pkg-config
         smartmontools
         spotify-player
+        thinkfan # Thinkpad Fan control
         termpdfpy
         tree
         screen
+        seatd
+        xidlehook # Lock Utility
+        xss-lock # Lock Utility
+        # XOrg Utils
+        xorg.xrandr
+        xorg.xrdb
+        xorg.xdpyinfo
+        xorg.xbacklight
+        xorg.xset
       ];
     })
   ];
