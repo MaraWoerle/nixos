@@ -124,7 +124,7 @@ with lib;
             micro
             nemo-with-extensions # File Manager
             numlockx
-            pavucontrol
+            pwvucontrol
             playerctl
             libsForQt5.qt5.qtsvg
             libsForQt5.qt5.qtquickcontrols

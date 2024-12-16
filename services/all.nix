@@ -3,6 +3,7 @@
 {
   imports =
     [
+      ./amd.nix
       ./daily.nix
       ./epson.nix
       ./epz-bot.nix

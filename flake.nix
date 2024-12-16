@@ -1,8 +1,8 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-    # home-manager.url = "github:nix-community/home-manager";
-    home-manager.url = "https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz";
+    home-manager.url = "github:nix-community/home-manager";
+    # home-manager.url = "https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     plasma-manager.url = "github:nix-community/plasma-manager";
     agenix.url = "github:ryantm/agenix";
