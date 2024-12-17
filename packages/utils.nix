@@ -7,10 +7,6 @@ with lib;
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
-    nixpkgs.config.permittedInsecurePackages = [
-      "fluffychat-linux-1.22.1"
-    ];
-
     environment.systemPackages = with pkgs; [
       # Tools
       arandr # Screen Management
@@ -23,7 +19,6 @@ with lib;
       ffmpeg
       filezilla # Remote File Explorer
       firefox # Browser
-      fluffychat # Matrix Client
       geany # Text Editor
       geeqie # Image Viewer
       gimp # Image Editor
@@ -46,6 +41,7 @@ with lib;
       obs-studio # Streaming Client
       parabolic # Downloader
       pavucontrol # Volume Control
+      polkit_gnome # Polkit Agent
       putty # SSL Client
       switcheroo-control # Change GPUs
       themechanger # change GTK Themes

@@ -25,8 +25,9 @@
   # Fan Control
   services.thinkfan.enable = true;
 
-  i3 = {
+  gra-env = {
     enable = true;
+    env = "sway";
     autologin = true;
     autologin-user = "mara";
   };
