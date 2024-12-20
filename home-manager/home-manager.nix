@@ -4,6 +4,7 @@
   imports = [
     ./spicetify.nix
   ];
+  home-manager.backupFileExtension = "backup";
   home-manager.users.mara = { config, pkgs, ... }:
 
   {
@@ -24,7 +25,6 @@
 
       enableNixpkgsReleaseCheck = false;
     };
-
 
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;

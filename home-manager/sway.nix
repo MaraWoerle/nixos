@@ -2,7 +2,6 @@
 
 let
   modifier = config.wayland.windowManager.sway.config.modifier;
-  wofiCmd = "wofi -S";
   lockCommand = "swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png";
   scrnCmd = "grimblast copysave area";
 in
@@ -89,11 +88,11 @@ in
 
         keybindings = {
           # App launch menu
-          "${modifier}+d" = "exec ${wofiCmd} drun";
-          "${modifier}+s" = "exec cat ~/.ssh/config | grep 'Host ' | cut -d ' ' -f 2 | sort | ${wofiCmd} dmenu | xargs kitty kitten ssh";
-          # "${modifier}+f" = "exec export FILE=~; while [ $(ls -a $FILE | grep -c '') -ne 1 ]; do NEW_FILE=$(ls -a $FILE | ${wofiCmd} dmenu); if [ '$NEW_FILE' == '' ]; then exit 1; fi; FILE=$FILE/$NEW_FILE; done; xdg-open $FILE";
-          "${modifier}+Shift+Return" = "exec ${wofiCmd} run";
-          "${modifier}+space" = "exec ${wofiCmd} run";
+          "${modifier}+d" = "exec rofi -show drun";
+          "${modifier}+s" = "exec rofi -show ssh";
+          "${modifier}+f" = "exec rofi -show filebrowser";
+          "${modifier}+Shift+Return" = "exec rofi -show combi";
+          "${modifier}+space" = "exec rofi -show combi";
           # Multimedia
           "XF86AudioRaiseVolume" = "exec --no-startup-id amixer -q sset Master 5%+ unmute";
           "XF86AudioLowerVolume" = "exec --no-startup-id amixer -q sset Master 5%- unmute";
@@ -189,69 +188,7 @@ in
 
     programs = {
       # Application Launcher
-      wofi = {
-        enable = true;
-        style = ''
-          window {
-              margin: 0px;
-              background-color: #232136;
-              border-radius: 0px;
-              border: 2px solid #eb6f92;
-              color: #e0def4;
-              font-family: 'Monofur Nerd Font';
-              font-size: 16px;
-          }
-
-          #input {
-              margin: 5px;
-              border-radius: 0px;
-              border: none;
-              border-radius: 0px;;
-              color: #eb6f92;
-              background-color: #393552;
-          }
-
-          #inner-box {
-              margin: 5px;
-              border: none;
-              background-color: #393552;
-              color: #232136;
-              border-radius: 0px;
-          }
-
-          #outer-box {
-              margin: 15px;
-              border: none;
-              background-color: #232136;
-          }
-
-          #scroll {
-              margin: 0px;
-              border: none;
-          }
-
-          #text {
-              margin: 5px;
-              border: none;
-              color: #e0def4;
-          }
-
-          #entry:selected {
-              background-color: #eb6f92;
-              color: #232136;
-              border-radius: 0px;;
-              outline: none;
-          }
-
-          #entry:selected * {
-              background-color: #eb6f92;
-              color: #232136;
-              border-radius: 0px;;
-              outline: none;
-          }
-
-        '';
-      };
+      rofi.package = pkgs.rofi-wayland;
 
       # Wallpaper
       wpaperd = {
@@ -341,5 +278,13 @@ in
         lockCmd = lockCommand;
       };
     };
+
+    #gtk = {
+    #  enable = true;
+    #  theme = {
+    #    name = "rose-pine-moon";
+    #    package = pkgs.rose-pine-gtk-theme;
+    #  };
+    #};
   };
 }

@@ -22,6 +22,20 @@ with lib;
       };
     };
 
+    qt = {
+      enable = true;
+      platformTheme = "qt5ct";
+      style = "cleanlooks";
+    };
+
+    environment.variables = {
+      QT_STYLE_OVERRIDE = "cleanlooks";
+      QT_QPA_PLATFORMTHEME = "qt5ct";
+      QT_QPA_PLATFORM = "wayland";
+      XDG_SESSION_TYPE = "wayland";
+      GDK_BACKEND = "wayland";
+    };
+
     # Display Manager
     services = {
       dbus.enable = true;
@@ -73,6 +87,9 @@ with lib;
       grimblast # Screenshot Utility
       swaybg
       wofi # Application launcher
+      libsForQt5.qtstyleplugin-kvantum
+      libsForQt5.qt5ct
+      libsForQt5.breeze-icons
     ];
   };
 }

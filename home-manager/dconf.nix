@@ -11,6 +11,7 @@
         font-name = "Hack Nerd 10";
         gtk-theme = "rose-pine-moon";
         icon-theme = "Vivid-Dark-Icons";
+        gtk-fallback-icon-theme = "oomox-rose-pine-dawn";
       };
 
       "org/gnome/desktop/wm/preferences" = {

@@ -5,7 +5,7 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "Vivid-Dark-Icons";
-  version = "1.0";
+  version = "1.1";
   dontBuild = true;
 
   nativeBuildInputs = [ gtk3 ];
@@ -14,7 +14,7 @@ stdenvNoCC.mkDerivation rec {
     owner = "MaraWoerle";
     repo = "Vivid-Plasma-Themes";
     rev = "v${version}";
-    sha256 = "sha256-BAGsOV7N0r1Vwudmgw3hK1rQ4zzCEhLkhA5Kr4LLTtI=";
+    sha256 = "sha256-JmIpex0IRVKCDwLn5YDcoTJ/kwJvq7aHkbzppbt50D0=";
   };
 
   installPhase = ''
