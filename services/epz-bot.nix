@@ -54,7 +54,7 @@ with lib;
       # Database
       services.mysql = {
         enable = true;
-        package = pkgs.mysql;
+        package = pkgs.mariadb;
         ensureUsers = [
           {
             name = "epz_bot";

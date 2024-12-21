@@ -64,11 +64,11 @@ with lib;
       environmentFile = cfg.envFile;
       package = pkgs.searxng.overrideAttrs (old: {
         postInstall = old.postInstall + ''
-          cp ${cfg.design-files}/img/favicon.png $out/lib/python3.11/site-packages/searx/static/themes/simple/img/favicon.png
-          cp ${cfg.design-files}/img/favicon.svg $out/lib/python3.11/site-packages/searx/static/themes/simple/img/favicon.svg
-          cp ${cfg.design-files}/img/img_load_error.svg $out/lib/python3.11/site-packages/searx/static/themes/simple/img/img_load_error.svg
-          cp ${cfg.design-files}/img/searxng.png $out/lib/python3.11/site-packages/searx/static/themes/simple/img/searxng.png
-          cp ${cfg.design-files}/img/searxng.svg $out/lib/python3.11/site-packages/searx/static/themes/simple/img/searxng.svg
+          cp ${cfg.design-files}/img/favicon.png $out/lib/python3.12/site-packages/searx/static/themes/simple/img/favicon.png
+          cp ${cfg.design-files}/img/favicon.svg $out/lib/python3.12/site-packages/searx/static/themes/simple/img/favicon.svg
+          cp ${cfg.design-files}/img/img_load_error.svg $out/lib/python3.12/site-packages/searx/static/themes/simple/img/img_load_error.svg
+          cp ${cfg.design-files}/img/searxng.png $out/lib/python3.12/site-packages/searx/static/themes/simple/img/searxng.png
+          cp ${cfg.design-files}/img/searxng.svg $out/lib/python3.12/site-packages/searx/static/themes/simple/img/searxng.svg
         '';
       });
       settings = {
