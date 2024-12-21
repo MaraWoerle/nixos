@@ -142,11 +142,6 @@
 
   console.keyMap = "de";
 
-  users.users.mara = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-  };
-
   services.openssh.enable = true;
 
   system.stateVersion = "24.11";

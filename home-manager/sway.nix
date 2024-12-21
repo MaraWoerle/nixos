@@ -262,7 +262,7 @@ in
         layer = "overlay";
         defaultTimeout = 3000;
         anchor = "top-right";
-        borderRadius = 3;
+        borderRadius = 0;
         borderSize = 3;
         font = "Hack Nerd Font 10";
         # Theme

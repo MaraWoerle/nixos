@@ -67,14 +67,6 @@
     ];
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.mara = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    packages = with pkgs; [
-    ];
-  };
-
   system = {
     autoUpgrade.enable = true;
     autoUpgrade.allowReboot = true;

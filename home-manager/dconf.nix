@@ -8,7 +8,7 @@
         cursor-size = 24;
         cursor-theme = "Sweet-cursors";
         enable-animations = true;
-        font-name = "Hack Nerd 10";
+        # font-name = "Hack Nerd 10";
         gtk-theme = "rose-pine-moon";
         icon-theme = "Vivid-Dark-Icons";
         gtk-fallback-icon-theme = "oomox-rose-pine-dawn";

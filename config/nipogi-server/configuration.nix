@@ -113,12 +113,12 @@
           ];
         };
         "Camera" = {
-           id = "hvtbv-u5beb";
-           path = "/mnt/Archive/Images/Camera";
-           devices = [
-             "Mara - Handy"
-           ];
-         };
+          id = "hvtbv-u5beb";
+          path = "/mnt/Archive/Images/Camera";
+          devices = [
+            "Mara - Handy"
+          ];
+        };
       };
     };
   };
@@ -261,26 +261,7 @@
     };
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.mara = {
-    isNormalUser = true;
-    description = "Mara";
-    shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "docker" "hamachi" ];
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.loris = {
-    isNormalUser = true;
-    description = "Loris";
-    shell = pkgs.zsh;
-    extraGroups = [ "wheel" ];
-  };
-
   services.netboot.enable = true;
-
-  # Autologin
-  # services.getty.autologinUser = "mara";
 
   system = {
     autoUpgrade.enable = true;

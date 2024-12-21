@@ -7,6 +7,20 @@
       ../../all.nix
     ];
 
+  users.motd = ''Server Files liegen unter /mnt/Servers
+Directory der shell ändern mit:
+  cd <insert directory>
+Dateien im momentanen Directory anzeigen:
+  ls
+Neue TMUX Session anlegen:
+  tmux -S /var/tmux/shared new-session -s <insert name>
+Zu bestehenden TMUX Session Verbinden:
+  tmux -S /var/tmux/shared attach-session
+Minecraft Server per Script starten:
+  ./startserver.sh
+Server_Files.zip erstellen:
+  ./create_server_files.zip'';
+
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
@@ -53,18 +67,6 @@
   #   font = "Lat2-Terminus16";
     keyMap = "de";
   #   useXkbConfig = true; # use xkb.options in tty.
-  };
-
-  users.users.mara = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    extraGroups = [ "wheel" "docker" "tmux" ]; # Enable ‘sudo’ for the user.
-  };
-
-  users.users.loris = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    extraGroups = [ "wheel" "tmux" ]; # Enable ‘sudo’ for the user.
   };
 
   # File Share

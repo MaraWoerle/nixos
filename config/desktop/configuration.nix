@@ -134,16 +134,6 @@
   # Configure console keymap
   console.keyMap = "de";
 
-  # User Account
-  users.users.mara = {
-    isNormalUser = true;
-    description = "Mara";
-    shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "docker" "hamachi" "adbusers" ];
-    packages = with pkgs; [
-    ];
-  };
-
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11"
   ];
