@@ -60,6 +60,7 @@ with lib;
         spotify-player
         thinkfan # Thinkpad Fan control
         termpdfpy
+        tmux # Terminal Multiplexer
         tree
         screen
         seatd

@@ -58,7 +58,13 @@
   users.users.mara = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" "tmux" ]; # Enable ‘sudo’ for the user.
+  };
+
+  users.users.loris = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    extraGroups = [ "wheel" "tmux" ]; # Enable ‘sudo’ for the user.
   };
 
   # File Share
@@ -89,6 +95,8 @@
 
   networking.firewall = {
     allowedTCPPorts = [
+      # Minecraft
+      25565
       # NFS
       2049
     ];

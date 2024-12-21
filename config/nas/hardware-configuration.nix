@@ -39,6 +39,12 @@
       options = [ "nofail" ];
     };
 
+  fileSystems."/mnt/Servers" =
+    { device = "nipogi-server:/Servers";
+      fsType = "nfs";
+      options = [ "nofail" "x-systemd.automount" "x-systemd.idle-timeout=600" ];
+    };
+
   # fileSystems."/export/Floppy" =
   #   { device = "/dev/disk/by-path/pci-0000:00:1a.0-usb-0:1.3:1.0-scsi-0:0:0:0";
   #     fsType = "auto";
