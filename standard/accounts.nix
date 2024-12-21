@@ -11,7 +11,6 @@
         isNormalUser = true;
         description = "Mara";
         shell = pkgs.zsh;
-        home = "/home/mara";
         extraGroups = [
           "networkmanager"
           "wheel"
