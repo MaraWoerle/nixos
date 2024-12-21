@@ -185,15 +185,15 @@
   # EPZ Bots
   services = {
     epz-bot = {
-      # enable = true;
-      # directory = "/home/mara/Documents/Discord-Bot/epz-bot";
+      enable = true;
+      directory = "/home/mara/Documents/Discord-Bot/epz-bot";
       db-enable = true;
       db-backup-enable = true;
       db-backup-path = "/home/mara/Documents/Database-Backups";
     };
     epz-test-bot = {
-      # enable = true;
-      # directory = "/home/mara/Documents/Discord-Bot/epz-test-bot";
+      enable = true;
+      directory = "/home/mara/Documents/Discord-Bot/epz-test-bot";
       db-enable = true;
       db-backup-enable = true;
     };
@@ -219,6 +219,10 @@
   # NFS Share
   fileSystems = {
     "/export/Servers" = {
+      device = "/home/mara/Documents/Servers";
+      options = [ "bind" ];
+    };
+    "/home/loris/Servers" = {
       device = "/home/mara/Documents/Servers";
       options = [ "bind" ];
     };
@@ -263,6 +267,14 @@
     description = "Mara";
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "docker" "hamachi" ];
+  };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.loris = {
+    isNormalUser = true;
+    description = "Loris";
+    shell = pkgs.zsh;
+    extraGroups = [ "wheel" ];
   };
 
   services.netboot.enable = true;
